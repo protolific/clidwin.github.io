@@ -1,0 +1,263 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url("reset.css");
+
+/* HTML Element Override */
+html {
+	height: 100%;
+	min-height: 370px;
+	width: 100%;
+	min-width: 350px;
+
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size: 1.2em;
+	line-height: 1.3em;
+
+	background-color: #ddd;
+	color: #4d4d4d;
+}
+
+p {
+	font-size: 1em;
+	line-height: 1.4em;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+a {
+	color: #0d8993;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+/* Page Specifications */
+.page {
+	height: 100%;
+	width: 100%;
+	overflow: none;
+	position: relative;
+}
+
+.page-content-wrapper {
+	position: absolute;
+	margin: 10% 10%;
+	width: 80%;
+	height: 60%;
+}
+
+#contact-page {
+	background-color: #86a0bc;
+}
+
+
+/* Columns */
+.column {
+	display: inline-block;
+}
+
+.one-third {
+	width: 30%;
+}
+
+.two-thirds {
+	width: 60%;
+}
+
+.float-right {
+	float: right;
+}
+
+/* Text and Font */
+.title-text {
+	font-size: 3.5em;
+}
+
+.page-title-text {
+	font-size: 1.5em;
+	margin: 5px auto;
+}
+
+.bold {
+	font-weight: 400;
+}
+
+
+/* Home Page */
+#main-logo {
+	background-image: url("../imgs/clidwin_logo.svg"), none;
+	width: 250px;
+	height: 220px;
+	margin: 0 auto 10px auto;
+}
+
+#name-wrapper {
+	width: 430px;
+	margin: 0 auto;
+}
+
+#site-description {
+	max-width: 450px;
+	margin: 10px auto;
+}
+
+#home-navigation {
+	font-size: 1.1em;
+	color: #4d507b;
+}
+
+#home-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	margin-top: -212px;
+	margin-left: -225px;
+}
+
+
+/* Colors */
+.blue {
+	color: #30659B;
+}
+
+
+/* Form */
+#contact {
+	margin-top: 1.5em;
+}
+label {
+	display: block;
+	min-height: 25px;
+	margin-bottom: 20px;
+}
+
+label.span {
+	text-align: right;
+}
+
+input {
+	height: 25px;
+}
+
+textarea {
+	height: 150px;
+}
+
+textarea, input {
+	border: 1px solid #8d8d8d;
+	border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+
+	float: right;
+
+	resize:none;
+
+	text-align: middle;
+
+	width: calc(100% - 90px);
+}
+
+textarea:focus, input:focus {
+	border: 2px solid #30659B;
+	border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+#form-message {
+	height: 152px;
+}
+
+.button {
+	border: 2px solid #30659B;
+	border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	
+	background-color: #30659B;
+	color: #ddd;
+
+	font-size: 0.9em;
+	font-weight: 300;
+
+	width: 80px;
+	height: 30px;
+}
+
+
+/* Miscellaneous */
+.content-center-align {
+	text-align: center;
+}
+
+.text-block {
+	margin: 10px 0;
+}
+
+
+/* Mid-size screen */
+@media all and (max-width: 899px) {
+	.column {
+		width: 100%;
+	}
+}
+
+
+/* Small Screen Alterations */
+@media all and (max-width: 499px), all and (max-height: 499px) {
+	html {
+		font-size: 1em;
+	}
+
+	#main-logo {
+		background-image: url("../imgs/clidwin_logo.svg"), none;
+		width: 150px;
+		height: 135px;
+		margin: 0 auto;
+	}
+
+	#name-wrapper {
+		width: 375px;
+	}
+
+	.title-text {
+		font-size: 3.5em;
+	}
+
+	.page-title-text {
+		font-size: 1.5em;
+	}
+
+	.content-center-align {
+		max-width: 375px;
+		margin: 10% auto;
+	}
+
+	#site-description {
+		font-size: 1em;
+	}
+
+	#home-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		margin-top: -170px;
+		margin-left: -185px;
+	}
+}
+
+/* Small Screen Alterations */
+@media all and (max-width: 349px), all and (max-height: 324px) {
+}
