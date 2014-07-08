@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url("reset.css");
 
+
 /* HTML Element Override */
 html {
 	height: 100%;
@@ -178,6 +179,13 @@ textarea:focus, input:focus {
 	height: 152px;
 }
 
+#error {
+	color: #96011a;
+	float: left;
+	font-weight: 400;
+	margin-top: 5px;
+}
+
 .button {
 	border: 2px solid #30659B;
 	border-radius: 4px;
@@ -195,7 +203,6 @@ textarea:focus, input:focus {
 	height: 30px;
 }
 
-
 /* Miscellaneous */
 .content-center-align {
 	text-align: center;
@@ -205,20 +212,115 @@ textarea:focus, input:focus {
 	margin: 10px 0;
 }
 
+/* Social Media */
+#social-media-bar {
+	margin: 20px auto;
+	width: 385px;
+}
+
+.social-button{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+#behance {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 0;
+}
+
+#behance:hover {
+	background-position: 120px 0;
+}
+
+#behance:active {
+	background-position: 60px 0;
+}
+
+#github {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 240px;
+}
+
+#github:hover {
+	background-position: 120px 240px;
+}
+
+#github:active {
+	background-position: 60px 240px;
+}
+
+#google-plus {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 300px;
+}
+
+#google-plus:hover {
+	background-position: 120px 300px;
+}
+
+#google-plus:active {
+	background-position: 60px 300px;
+}
+
+#linkedin {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 180px;
+}
+
+#linkedin:hover {
+	background-position: 120px 180px;
+}
+
+#linkedin:active {
+	background-position: 60px 180px;
+}
+
+#pinterest {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 120px;
+}
+
+#pinterest:hover {
+	background-position: 120px 120px;
+}
+
+#pinterest:active {
+	background-position: 60px 120px;
+}
+
+#twitter {
+	background-image: url("../imgs/social_buttons.png"), none;
+	background-position: 0 60px;
+}
+
+#twitter:hover {
+	background-position: 120px 60px;
+}
+
+#twitter:active {
+	background-position: 60px 60px;
+}
+
 
 /* Mid-size screen */
-@media all and (max-width: 899px) {
+@media all and (max-width: 1249px) {
 	.column {
 		width: 100%;
+	}
+
+	#social-media-bar {
+		width: 385px;
+	}
+
+	.social-button{
+		margin: 0 0;
 	}
 }
 
 
 /* Small Screen Alterations */
 @media all and (max-width: 499px), all and (max-height: 499px) {
-	html {
-		font-size: 1em;
-	}
 
 	#main-logo {
 		background-image: url("../imgs/clidwin_logo.svg"), none;
@@ -231,21 +333,9 @@ textarea:focus, input:focus {
 		width: 375px;
 	}
 
-	.title-text {
-		font-size: 3.5em;
-	}
-
-	.page-title-text {
-		font-size: 1.5em;
-	}
-
 	.content-center-align {
 		max-width: 375px;
 		margin: 10% auto;
-	}
-
-	#site-description {
-		font-size: 1em;
 	}
 
 	#home-content {
@@ -256,7 +346,16 @@ textarea:focus, input:focus {
 		margin-top: -170px;
 		margin-left: -185px;
 	}
+
+	#social-media-bar {
+		width: 250px;
+	}
+
+	.social-button{
+		margin: 5px 10px;
+	}
 }
+
 
 /* Small Screen Alterations */
 @media all and (max-width: 349px), all and (max-height: 324px) {
