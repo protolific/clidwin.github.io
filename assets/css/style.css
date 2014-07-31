@@ -40,7 +40,8 @@ a:hover {
 
 /* Page Specifications */
 .page {
-	height: 100%;
+	clear: both;
+	min-height: 100%;
 	width: 100%;
 	overflow: none;
 	position: relative;
@@ -48,7 +49,7 @@ a:hover {
 
 .page-content-wrapper {
 	position: absolute;
-	margin: 10% 10%;
+	padding: 10%;
 	width: 80%;
 	height: 60%;
 }
@@ -130,9 +131,6 @@ a:hover {
 
 
 /* Form */
-#contact {
-	margin-top: 1.5em;
-}
 label {
 	display: block;
 	min-height: 25px;
@@ -321,14 +319,6 @@ textarea:focus, input:focus {
 
 /* Small Screen Alterations */
 @media all and (max-width: 499px), all and (max-height: 499px) {
-
-	#main-logo {
-		background-image: url("../imgs/clidwin_logo.svg"), none;
-		width: 150px;
-		height: 135px;
-		margin: 0 auto;
-	}
-
 	#name-wrapper {
 		width: 375px;
 	}
@@ -340,10 +330,9 @@ textarea:focus, input:focus {
 
 	#home-content {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 50%;
 
-		margin-top: -170px;
 		margin-left: -185px;
 	}
 
