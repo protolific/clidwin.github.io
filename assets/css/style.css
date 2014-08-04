@@ -11,16 +11,17 @@ html {
 
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	font-size: 1.2em;
-	line-height: 1.3em;
+	font-size: 1.1em;
+	line-height: 1.4em;
 
 	background-color: #ddd;
 	color: #4d4d4d;
 }
 
 p {
-	font-size: 1em;
+	font-size: 1.1em;
 	line-height: 1.4em;
+	text-align: justify;
 }
 
 body {
@@ -37,25 +38,40 @@ a:hover {
 	text-decoration: underline;
 }
 
+.clearing-block {
+	clear: both; 
+	height: 10px;
+}
+
 
 /* Page Specifications */
 .page {
 	clear: both;
 	min-height: 100%;
-	width: 100%;
 	overflow: none;
 	position: relative;
+	width: 100%;
+}
+
+.page-desc {
+	font-size: 1.3em;
 }
 
 .page-content-wrapper {
-	position: absolute;
-	padding: 10%;
-	width: 80%;
 	height: 60%;
+	max-width: 1200px;
+
+	padding-top: 150px;
+	width: 80%;
+	margin: 0 auto;
 }
 
-#contact-page {
+#contact {
 	background-color: #86a0bc;
+}
+
+#about {
+	background-color: #75b2b7;
 }
 
 
@@ -82,12 +98,38 @@ a:hover {
 }
 
 .page-title-text {
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 5px auto;
+}
+
+.page-content-text {
+	font-size: 1em;
+	line-height: 1.3em;
 }
 
 .bold {
 	font-weight: 400;
+}
+
+#work-title {
+	width: 250px;
+}
+
+.back-up-arrow {
+	background-image: url("../imgs/back-up-arrow.svg"), none;
+	bottom: 15px;
+	height: 50px;
+	position: absolute;
+	right: 15px;
+	width: 50px;
+}
+
+.back-up-arrow:hover {
+	background-image: url("../imgs/back-up-arrow_hover.svg"), none;
+	bottom: 15px;
+	height: 50px;
+	right: 15px;
+	width: 50px;
 }
 
 
@@ -105,7 +147,7 @@ a:hover {
 }
 
 #site-description {
-	max-width: 450px;
+	max-width: 475px;
 	margin: 10px auto;
 }
 
@@ -121,6 +163,95 @@ a:hover {
 
 	margin-top: -212px;
 	margin-left: -225px;
+}
+
+
+/* About Page */
+.about-notion {
+	clear: both;
+	margin: 25px 0;
+	min-height: 125px;
+}
+
+.about-notion-image {
+	display: inline-block;
+	float: left;
+	height: 125px;
+	margin-right: 25px;
+	width: 125px;
+}
+
+.about-notion-title {
+	font-size: 1.5em;
+	font-weight: 400;
+	margin-bottom: 5px;
+}
+
+#notion-image-1 {
+	background-image: url("../imgs/notion-interaction.svg");
+}
+
+#notion-image-2 {
+	background-image: url("../imgs/notion-innovation.svg");
+}
+
+#notion-image-3 {
+	background-image: url("../imgs/notion-inspiration.svg");
+}
+
+
+/* Work Page */
+.sample-block {
+	display: inline-block;
+	margin-top: 40px;
+	padding: 0 10px;
+	width: 375px;
+}
+
+.sample-block-group {
+	margin: 0 auto;
+	max-width: 1195px;
+}
+
+.sample-block-image {
+	background-color: #7f7f7f;
+	border: 5px solid #7f7f7f;
+	border-radius: 10px;
+	height: 200px;
+	margin: 0 auto 10px auto;
+	width: 80%;
+}
+
+.sample-block-title {
+	font-size: 1.2em;
+	font-weight: 400;
+	text-align: center;
+}
+
+.sample-block-context{
+	color: #7f7f7f;
+	font-size: 0.9em;
+	line-height: 1.5em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.sample-block-desc {
+	line-height: 1.4em;
+	margin: 0 auto;
+	text-align: justify;
+}
+
+#work-1201 {
+	background-image: url('../imgs/work-1201.png');
+}
+
+#work-dorazio {
+	background-image: url('../imgs/work-dorazio.png');
+}
+
+#work-kohl {
+	background-image: url('../imgs/work-kohl.png');
 }
 
 
@@ -201,6 +332,7 @@ textarea:focus, input:focus {
 	height: 30px;
 }
 
+
 /* Miscellaneous */
 .content-center-align {
 	text-align: center;
@@ -209,6 +341,7 @@ textarea:focus, input:focus {
 .text-block {
 	margin: 10px 0;
 }
+
 
 /* Social Media */
 #social-media-bar {
@@ -307,8 +440,12 @@ textarea:focus, input:focus {
 		width: 100%;
 	}
 
+	.page-content-wrapper {
+		padding-top: 100px;
+	}
+
 	#social-media-bar {
-		width: 385px;
+		max-width: 385px;
 	}
 
 	.social-button{
@@ -319,21 +456,35 @@ textarea:focus, input:focus {
 
 /* Small Screen Alterations */
 @media all and (max-width: 499px), all and (max-height: 499px) {
+	.page {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	.page-content-wrapper {
+		padding-top: 50px;
+	}
+
 	#name-wrapper {
-		width: 375px;
+		max-width: 300px;
 	}
 
 	.content-center-align {
-		max-width: 375px;
-		margin: 10% auto;
+		max-width: 300px;
+		margin: 0 auto;
 	}
 
 	#home-content {
-		position: absolute;
-		top: 40%;
-		left: 50%;
+		position: relative;
+		left: 0;
+		top: 0;
 
-		margin-left: -185px;
+		margin: 0 auto;
+	}
+
+	.sample-block {
+		width: 325px;
 	}
 
 	#social-media-bar {
@@ -345,7 +496,13 @@ textarea:focus, input:focus {
 	}
 }
 
+/* Small Screen Alterations */
+@media all and (max-width: 499px), all and (max-height: 499px) {
+
 
 /* Small Screen Alterations */
 @media all and (max-width: 349px), all and (max-height: 324px) {
+	.sample-block {
+		width: auto;
+	}
 }
