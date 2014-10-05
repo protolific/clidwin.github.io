@@ -19,6 +19,7 @@ body {
 h1 {
 	font-size: 2em;
 	font-weight: 700;
+	line-height: 1.1em;
 	margin-bottom: 15px;
 }
 
@@ -57,6 +58,10 @@ strong {
 /* Custom Class Selectors */
 .annotated-reference {
 	margin: 10px 15px;
+}
+
+.codepen-wrapper {
+	margin: 10px 0;
 }
 
 .keyword{
