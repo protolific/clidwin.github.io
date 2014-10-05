@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <!-- Meta Information !-->
+    <title>Module 2 - CSS Transforms: Basic Functions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Description of the different functions used in CSS transforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets !-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  </head>
+
+  <body>
+    <div id="module">
+    	<h1>CSS Transforms: Basic Functions</h1>
+    	<p>The values of the CSS transform property are functions written in the form of a keyword, followed by parentheses enclosing values that help specify how to apply the transform. This syntax is similar to the function <span class="keyword">url()</span>, which can be used to specify a background image, import a font, or otherwise link to a resource that cannot be created inside the CSS stylesheet.</p>
+      <p>The basic CSS transform functions include rotate, scale, skew, and translate</p>
+
+      <h2>Interactive Example</h2>
+      <p>This example shows five squares, where the light grey square has no transforms applied to it. The cyan square has been rotated 45 degrees, the magenta square has been scaled to half its regular size, the yellow square has been skewed 30 degrees, and the dark grey square has been translated 50px</p>
+      <div class="codepen-wrapper">
+        <p data-height="268" data-theme-id="0" data-slug-hash="whybG" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/whybG/'>whybG</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <script async src="//codepen.io/assets/embed/ei.js"></script>
+      </div>
+      <p>By clicking the "Edit with CodePen" link, you are able to play with this example. See if you can change the cyan square to rotate -25 degrees, the magenta square scale to three-quarters of its original size, the yellow square skew 45 degrees in the opposite direction, and the dark grey scale translated 30px to the left and 50px lower on the page.</p>
+
+      <h2><span class="keyword">rotate()</span></h2>
+      <p>The rotate function moves an element around a point in space (if unspecified, the center). It takes in one argument, the number of degrees to rotate, and that value must have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
+
+      <p>As an example, if someone wanted to rotate a square 45 degrees, they could define this in their css as  <span class="keyword">transform: rotate(45deg);</span>.</p>
+
+      <h2><span class="keyword">scale()</span></h2>
+      <p>The scale function changes the size of an element. To uniformly scale the element, use one number as the single argument to the function. To change the horizontal and vertical scaling, use two arguments, where the first argument is the value of the horizontal scaling, and the second argument is the value of the vertical scaling. In both forms of this function (one or two arguments), the number can be positive or negative and can be either an integer or decimal.</p>
+
+      <p>As an example, if someone wanted a square to be half its normal size, they could define this in their css as <span class="keyword">transform: scale(0.5);</span>.</p>
+
+      <h2><span class="keyword">skew()</span></h2>
+      <p>The skew function changes the element's boundary angles. To skew the entire element at the same angle, use one value as the single argument to the function. To change the horizontal and vertical skew, use two arguments, where the first argument is the angle of the horizontal skew, and the second argument is the angle of the vertical skew. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
+
+      <p>As an example, if someone wanted to skew a square 30 degrees, they could define this in their css as <span class="keyword">transform: skew(30deg);</span>.</p>
+
+      <h2><span class="keyword">translate()</span></h2>
+      <p>The translate function changes the drawn position. To translate in the x direction, use one argument. To translate horizontally and vertically, use two arguments, where the first argument is the angle of the horizontal shift, and the second argument is the angle of the vertical shift. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">px</span>) to specify length type being referenced <sup>[2]</sup>.</p>
+
+      <p>As an example, if someone wanted to draw a square 50px to the left of its origin, they could define this in their css as the transform <span class="keyword">transform: translate(50px);</span>.</p>
+      
+      <div id="footnote-wrapper">
+        <h3>Footnotes</h3>
+        <div class="footnote"> 
+          <sup>[1]</sup> While degrees are one type of input into the rotate and skew functions, these functions accepts any of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/angle">angle data types</a> as possible values.
+        </div>
+        <div class="footnote"> 
+          <sup>[2]</sup> Pixels are one type of input into the translate function, but this function accepts any of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length data types</a> as possible values.
+        </div>
+      </div>
+
+       <a href="css-transforms-matrix-function.html" id="next-button">
+        <strong>Next Section:</strong> Matrix Function <span class="entypo-right-thin"></span>
+      </a>
+    </div>
+  </body>
+</html>
