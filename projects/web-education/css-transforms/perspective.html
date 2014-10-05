@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <!-- Meta Information !-->
+    <title>Module 2 - CSS Transforms: Functions Expanded</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Description of the different functions used in CSS transforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets !-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  </head>
+
+  <body>
+    <div id="module">
+    	<h1>CSS Transforms: Functions Expanded</h1>
+    	<p>Rotate, scale, skew, and translate apply several different types of transformations to an element on their own, but Another CSS transform property is the matrix function, which combines rotate, translate, scale, and transform into a single function that relies on matrix multiplication and mathematics.</p>
+
+      <h2>Interactive Example</h2>
+      <p>This example shows a single grey scale altered that has been transformed using the matrix function.</p>
+      <div class="codepen-wrapper">
+        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/'>Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <script async src="//codepen.io/assets/embed/ei.js"></script>
+      </div>
+      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. </p>
+
+      <h2>Transforms in 3D</h2>
+      <p>In the case of the matrix, rotate, scale, and translate functions (in other words, everything but skew), it's possible to add the characters "3d" to the end of these function and have a new transform function that adds a third dimension effect. For scale and translate, these functions now take 3 arguments instead of two: an x value, a y value, and a z value. An example might be translating by 20px in all three dimensions, which would be the CSS <span class="keyword">transform: translate3d(20px, 20px, 20px);</p>
+      <p>To rotate in 3d rotate, we use four arguments to the new function. The first three arguments are for x-position, y-position, and z-position for the rotation, and the forth argument is the angle of rotation for the shape. TODO: FINISH THIS</p>
+      
+      <div id="footnote-wrapper">
+        <h3>Footnotes</h3>
+        <div class="footnote"> 
+          <sup>[1]</sup> More explanation of how the matrix arguments are structured can be best understood in an <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/">introduction to matrix algebra</a>.
+        </div>
+      </div>
+
+       <div id="bottom-nav">
+        <a href="basic-functions.html" id="previous-button" class="button">
+          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Basic Functions 
+        </a>
+
+         <a href="origins.html" id="next-button" class="button">
+          <strong>Next Section:</strong> Origins <span class="entypo-right-thin"></span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

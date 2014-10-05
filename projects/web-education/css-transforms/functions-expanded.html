@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <!-- Meta Information !-->
+    <title>Module 2 - CSS Transforms: Functions Expanded</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Description of the different functions used in CSS transforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets !-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  </head>
+
+  <body>
+    <div id="module">
+    	<h1>CSS Transforms: Functions Expanded</h1>
+    	<p>Rotate, scale, skew, and translate apply several different types of transformations to an element on their own, but Another CSS transform property is the matrix function, which combines rotate, translate, scale, and transform into a single function that relies on matrix multiplication and mathematics.</p>
+
+      <h2>Interactive Example</h2>
+      <p>This example shows a single grey scale altered that has been transformed using the matrix function.</p>
+      <div class="codepen-wrapper">
+        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/'>Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <script async src="//codepen.io/assets/embed/ei.js"></script>
+      </div>
+      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. Instead of scaling the square, try vertically translating the square 50 pixels.</p>
+
+      <h2>Transforms in One Dimension</h2>
+      <p>In all of the transforms we've talked about so far (rotate, scale, skew, translate), we can also add to the function name a capitalized character indicating the dimension we want to apply the transform to. This then means each function takes in a single argument, the value for the transform.</p>
+      <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
+
+      <h2><span class="keyword">matrix()</span></h2>
+      <p>The matrix function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations<sup>[1]</sup>.</p>
+
+      <p>As an example, if someone wanted to scale a square and rotate it 45 degrees, they might use the CSS <span class="keyword">transform:  matrix(1, -1, 1, 1, 20, 20);</span>.</p> As an alternative, they could use the rotate, translate, and scale functions all listed after the transform property.
+      
+      <div id="footnote-wrapper">
+        <h3>Footnotes</h3>
+        <div class="footnote"> 
+          <sup>[1]</sup> More explanation of how the matrix arguments are structured can be best understood in an <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/">introduction to matrix algebra</a>.
+        </div>
+      </div>
+
+       <div id="bottom-nav">
+        <a href="basic-functions.html" id="previous-button" class="button">
+          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Basic Functions 
+        </a>
+
+         <a href="origins.html" id="next-button" class="button">
+          <strong>Next Section:</strong> Origins <span class="entypo-right-thin"></span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
