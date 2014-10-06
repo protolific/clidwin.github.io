@@ -3,9 +3,9 @@
   
   <head>
     <!-- Meta Information !-->
-    <title>Module 2 - CSS Transforms: Origins</title>
+    <title>CSS Transforms: Origins</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="Description of the different functions used in CSS transforms.">
+    <meta name="description" content="Description of how origins are used in CSS transforms.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Stylesheets !-->
@@ -20,14 +20,14 @@
       <h2>Interactive Example</h2>
       <p>This example shows a black square with no transformations applied and a cyan square that has been rotated 30 degrees around a bottom right origin.</p>
       <div class="codepen-wrapper">
-        <p data-height="268" data-theme-id="9039" data-slug-hash="Kuvqx" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/Kuvqx/'>Transform-Origin</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <p data-height="268" data-theme-id="9039" data-slug-hash="Kuvqx" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/Kuvqx/' target="_blank">Transform-Origin</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
       </div>
       <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can change the black square to skew 35 degrees about its top left corner. </p>
 
       <h2><span class="keyword">transform-origin</span></h2>
       <p>Syntactically, the transform-origin property can take 1, 2, or 3 values. In the one value model, the length provided describes the horizontal and vertical positioning of the origin, and the offsets are based on the top left corner of the element. In the two value model, the first value is the horizontal offset for the origin, and the second argument is the vertical offset for the origin. The three value model uses x, y, and z as the offset for the origin.</p>
-      <p>Just like the <span class="keyword">margin</span> property, it is possible to combine <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length values</a> and keywords such as <span class="keyword">top</span>, <span class="keyword">bottom</span>, <span class="keyword">left</span>, <span class="keyword">right</span>, and <span class="keyword">center</span>. When using a keyword, the keyword does not need to go in the order specified above; it can appear out of order (except in the case of center), but as a good rule of thumb, follow the convention of listing the x offset first, followed by the y offset, followed by the z offset as applicable.</p>
+      <p>Just like the <span class="keyword">margin</span> property, it is possible to combine <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length" target="_blank">length values</a> and keywords such as <span class="keyword">top</span>, <span class="keyword">bottom</span>, <span class="keyword">left</span>, <span class="keyword">right</span>, and <span class="keyword">center</span>. When using a keyword, the keyword does not need to go in the order specified above; it can appear out of order (except in the case of center), but as a good rule of thumb, follow the convention of listing the x offset first, followed by the y offset, followed by the z offset as applicable.</p>
       <p>As an example, if someone wanted to rotate a square from its bottom right corner, they might use the CSS <span class="keyword">transform-origin: right bottom;</span>.</p>
 
        <div id="bottom-nav">
@@ -35,8 +35,8 @@
           <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Functions Expanded 
         </a>
 
-         <a href="styles.html" id="next-button" class="button">
-          <strong>Next Section:</strong> Styles <span class="entypo-right-thin"></span>
+         <a href="perspective.html" id="next-button" class="button">
+          <strong>Next Section:</strong> Perspective <span class="entypo-right-thin"></span>
         </a>
       </div>
     </div>

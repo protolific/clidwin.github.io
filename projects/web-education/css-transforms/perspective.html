@@ -3,9 +3,9 @@
   
   <head>
     <!-- Meta Information !-->
-    <title>Module 2 - CSS Transforms: Functions Expanded</title>
+    <title>CSS Transforms: Perspectives</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="Description of the different functions used in CSS transforms.">
+    <meta name="description" content="Description of how perspectives are used in CSS transforms.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Stylesheets !-->
@@ -14,20 +14,33 @@
 
   <body>
     <div id="module">
-    	<h1>CSS Transforms: Functions Expanded</h1>
-    	<p>Rotate, scale, skew, and translate apply several different types of transformations to an element on their own, but Another CSS transform property is the matrix function, which combines rotate, translate, scale, and transform into a single function that relies on matrix multiplication and mathematics.</p>
+    	<h1>CSS Transforms: Perspectives</h1>
+    	<p>By default, DOM elements are drawn on an xy-plane, which creates a flat panel on which objects are created and rendered. A third dimension does exist on web pages, but it is set to have a value of zero by default, thus creating the illusion of a two dimensional surface.</p>
+      <p><span class="keyword">perspective</span> allows us to set the space for this third dimension, and exposes a new set of transform functions and capabilities.</p>
 
       <h2>Interactive Example</h2>
-      <p>This example shows a single grey scale altered that has been transformed using the matrix function.</p>
+      <p>This example shows a page where a perspective of 200px has been applied with an origin on the left side. The light grey square has no transforms applied to it, but the rest have been rotated 60 degrees in the y direction.</p>
       <div class="codepen-wrapper">
-        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/'>Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <p data-height="268" data-theme-id="9039" data-slug-hash="AsBvy" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/AsBvy/'>Perspective</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
         <script async src="//codepen.io/assets/embed/ei.js"></script>
       </div>
-      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. </p>
+      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can change the perspective to be a negative 400px distance from the body element at an origin of the bottom right corner. Then rotate the cyan square 60 degrees in all dimensions and translate the magenta square 200px in the z dimension. After this has been completed, flatten the image using the transform-style. </p>
+
+      <h2><span class="keyword">perspective</span></h2>
+      <p>We use the perspective tag to set a depth or distance a focal point is perceived to be from the page. It is a similar concept to a camera in a 3D modelling program because all child elements are created based on the perspective's origin.</p>
+
+      <p>As an example, if we wanted to set a perspctive to 200px and then had a child element with a rotate transform applied, the perspective might view the rotated element differently than its originally rendering based on the perspective's view of the element. We could create this perspective through the CSS <span class="keyword">perspective: 200px;</span>.
+
+      <p>By default, the perspective's origin, or point of reference, is set to be the center of the element. We can change this using the <span class="keyword">perspective-origin</span> property, which functions the same way transform's origin property does.</p>
 
       <h2>Transforms in 3D</h2>
-      <p>In the case of the matrix, rotate, scale, and translate functions (in other words, everything but skew), it's possible to add the characters "3d" to the end of these function and have a new transform function that adds a third dimension effect. For scale and translate, these functions now take 3 arguments instead of two: an x value, a y value, and a z value. An example might be translating by 20px in all three dimensions, which would be the CSS <span class="keyword">transform: translate3d(20px, 20px, 20px);</p>
-      <p>To rotate in 3d rotate, we use four arguments to the new function. The first three arguments are for x-position, y-position, and z-position for the rotation, and the forth argument is the angle of rotation for the shape. TODO: FINISH THIS</p>
+      <p>In the case of the matrix, rotate, scale, and translate functions (in other words, everything but skew), it's possible to add the characters "3d" to the end of these function and have a new transform function that adds a third dimension effect. For scale and translate, these functions now take 3 arguments instead of two: an x value, a y value, and a z value. An example might be translating by 20px in all three dimensions, which would be the CSS <span class="keyword">transform: translate3d(20px, 20px, 20px);</span>.</p>
+      <p>To rotate in 3d rotate, we use four arguments to the new function. The first three arguments are for x-position, y-position, and z-position for the rotation point, and the forth argument is the angle of rotation for the shape. As an example, if we wanted to apply a 30 degree rotation to a point 5 pixels in the x, y, and z directions, we could do so through the CSS <span class="keyword">transform: rotate3d(5px, 5px, 5px, 30deg);</span></p>
+      <p>In the context of matricies, the 3d version of the function expands the arguments to outline a four by four matrix, and the arguments are ordered by column. The first three columns (first twelve arguments) are all numbers describing the transformations, and the last column (last four arguments) describe the translation effect. For more information, visit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function#matrix3d()" target="_blank">the Mozilla Developer Network entry on the topic</a>.</p>
+
+      <h2><span class="keyword">transform-style</span></h2>
+      <p>This property only has three possible values. <span class="keyword">preserve-3d</span> emphasizes that elements should be rendered in 3d space, whereas <span class="keyword">flat</span> overrides 3d properties and renders elements as if they all existed on the same xy plane. <span class="keyword">inherit</span> is a keyword we have seen before in other properties, and says to use the style applied in the closest parent element.</p>
+      <p>CSS-Tricks has an excellent <a href="http://css-tricks.com/almanac/properties/t/transform-style/" target="_blank">example showcasing how this property affects element rendering</a>.</p>
       
       <div id="footnote-wrapper">
         <h3>Footnotes</h3>
@@ -37,12 +50,12 @@
       </div>
 
        <div id="bottom-nav">
-        <a href="basic-functions.html" id="previous-button" class="button">
-          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Basic Functions 
+        <a href="origins.html" id="previous-button" class="button">
+          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Origins 
         </a>
 
-         <a href="origins.html" id="next-button" class="button">
-          <strong>Next Section:</strong> Origins <span class="entypo-right-thin"></span>
+         <a href="References.html" id="next-button" class="button">
+          <strong>Next Section:</strong> References <span class="entypo-right-thin"></span>
         </a>
       </div>
     </div>
