@@ -1,0 +1,11 @@
+body {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+}
+
+canvas {
+  position: absolute;
+  top: calc(50% - 400px);
+  left: calc(50% - 400px);
+}

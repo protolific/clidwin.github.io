@@ -16,6 +16,9 @@
  * Interactivity: No specific interactivity defined for this piece. However,
  *    it would be an interesting exercise to see how one might set an alarm or
  *    timer using this interface.
+ * 
+ * TODOS: In addition to the TODOs below, upload a version of this that shows
+ *    the watch version and matching background.
  */
 
 var allBlack = true;
@@ -202,6 +205,8 @@ function drawMinutes() {
   pop();
   
   // Create empty/fill animation based on if the second() is a switch second.
+  // TODO: Add easing so that the animation adds a minute, then retracts,
+  // then increases to the new position.
   if (second() == 59) {
     minuteRange -= 2;
   } else if (second() === 0) {
