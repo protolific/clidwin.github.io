@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 6, 2014
- * Modified On: October 19, 2014
+ * Modified On: October 22, 2014
  * 
  * Design Goal: To create a visual clock that involves animations for different 
  *    time breakdowns.
@@ -19,6 +19,8 @@
  * 
  * TODOS: In addition to the TODOs below, upload a version of this that shows
  *    the watch version and matching background.
+ *    Also change the color schemes throughout the day (cool colors at night,
+ *    warm colors during the day).
  */
 
 var allBlack = true;
@@ -129,7 +131,7 @@ function drawSeconds() {
   
   // Set styling.
   noFill();
-  stroke(164, 37, 60);
+  stroke(164, 37, 15);
   strokeCap(PROJECT);
   strokeWeight(20);
   
@@ -153,6 +155,8 @@ function drawSeconds() {
     push();
       translate(width/2, height/2);
       rotate(-88);
+      arc (0, 0, arcLength, arcLength, 0, 360);
+      stroke(164, 37, 60);
       arc(0, 0, arcLength, arcLength, 0, percentage);
     pop();
   }
@@ -167,7 +171,7 @@ function drawMinutes() {
   
   // Stroke details.
   strokeCap(PROJECT);
-  strokeWeight(1);
+  strokeWeight(3);
   
   // Reset the minuteRange if it's below zero.
   if (minuteRange < 0) {
@@ -183,9 +187,9 @@ function drawMinutes() {
       // Use different colors for the current minute, building minutes, or not
       // encountered minutes.
       if (i == minute() && i < minuteRange) {
-        stroke(5, 59, 85);
+        stroke(5, 59, 75);
       } else if (i < minute() && i < minuteRange) {
-        stroke(50, 39, 95);
+        stroke(50, 39, 75);
       } else {
         stroke(50, 39, 20);
       }
@@ -237,7 +241,7 @@ function drawHours() {
       } else if (i < hour()) {
         c = color(0, 50, 55);
       } else {
-        c = color(0, 50, 15);
+        c = color(0, 50, 20);
       }
       fill(c);
       
