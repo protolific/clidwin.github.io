@@ -58,6 +58,14 @@ strong {
 	font-weight: 400;
 }
 
+ul {
+	margin-left: 15px;
+}
+
+li {
+	list-style: disc inside;
+}
+
 
 /* entypo */
 [class*="entypo-"]:before {

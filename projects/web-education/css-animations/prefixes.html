@@ -15,20 +15,33 @@
   <body>
     <div id="module">
     	<h1>CSS Animations: Prefixes for Animations</h1>
-    	<p>Short introduction needed</p>
+    	<p>Before new web features are released, they are often developed in or experimented with different browsers. During this "beta" phase, the features can be enabled using special tags called <strong>vendor prefixes</strong>, which are prepended to the feature to tell the browser to treat the feature as an experiment. </p>
+      <p>While CSS animations is becoming more widely used, it isunfortunately not a fully released feature, which means in most cases vendor prefixes are required for both development and viewing CSS animations.</p>
 
-      <h2>Interactive Example</h2>
-      <p>Explain what the example shows</p>
-      <div class="codepen-wrapper">
-        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/' target="_blank">Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-        <script async src="//codepen.io/assets/embed/ei.js"></script>
-      </div>
-      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example.</p>
+      <h2>Vendor Prefix Syntax</h2>
+      <p>Below is a list of the most common vendor prefixes and their affiliated browsers<sup>[1]</sup>:</p>
+      <ul>
+        <li>
+          <span class="keyword">-webkit-</span> is used by Chrome and Safari.</p>
+        </li>
+        <li>
+          <span class="keyword">-moz-</span> is used by Firefox.</p>
+        </li>
+        <li>
+          <span class="keyword">-o-</span> is used by Opera.</p>
+        </li>
+      </ul>
+      <p>As you might anticipate from the "prefix" naming, these prefixes are added just before the feature you would like to use. So, for example, in doing an animation, the syntax for using animation in a Chrome browser would be <span class="keyword">-webkit-animation</span>.</p>
 
-      <h2>heading</h2>
-      <p>Content</p>
-      <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
+      <h2>Note for the Following Sections</h2>
+      <p>In all other sections for this module, I will be make a note of where vendor prefixes need to be applied. However, the highlighted syntax and terminology will be worded as if the concepts were features so that the documentation will stay up to date when CSS animations become a fully-supported feature.</p>
       
+      <div id="footnote-wrapper">
+        <h3>Footnotes</h3>
+        <div class="footnote"> 
+          <sup>[1]</sup> More information on why we use prefixes and prefixes for other browsers can be found at <a href="http://openweb.eu.org/articles/vendor-prefixes" target="_blank">OpenWeb's Vendor Prefixes webpage</a>.
+        </div>
+      </div>
       <div id="bottom-nav">
         <a href="index.html" id="previous-button" class="button">
           <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Animations Overview 
