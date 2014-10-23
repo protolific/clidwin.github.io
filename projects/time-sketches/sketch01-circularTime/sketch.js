@@ -171,7 +171,7 @@ function drawMinutes() {
   
   // Stroke details.
   strokeCap(PROJECT);
-  strokeWeight(3);
+  strokeWeight(5);
   
   // Reset the minuteRange if it's below zero.
   if (minuteRange < 0) {
@@ -225,8 +225,8 @@ function drawHours() {
   noStroke();
   
   // Create a rotation animation if the hour is changing.
-  if (minute() === 0 && second() ===0 ) {
-    rotateHour += 12;
+  if (minute() === 0 && second() === 0 ) {
+    rotateHour += 11.5;
   }
   
   push();
