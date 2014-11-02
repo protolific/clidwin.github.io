@@ -15,19 +15,19 @@
   <body>
     <div id="module">
     	<h1>CSS Animations: Animation Shorthand</h1>
-    	<p>Short introduction needed</p>
+    	<p>The various animation sub-properties can either be used as detailed in the previous section, or combined under the single <span class="keyword">animation</span> property (with vendor prefixes, as needed). This relationship is just like how the <span class="keyword">background</span> property encapsulates <span class="keyword">background-color</span> <span class="keyword">background-size</span>, etc. </p>
 
       <h2>Interactive Example</h2>
-      <p>Explain what the example shows</p>
+      <p>This example uses the </p>
       <div class="codepen-wrapper">
-        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/' target="_blank">Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-        <script async src="//codepen.io/assets/embed/ei.js"></script>
+        <p data-height="268" data-theme-id="9039" data-slug-hash="GJwrj" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/GJwrj/'>Animation Shorthand</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
       </div>
       <p>By clicking the "Edit with CodePen" link, you are able to interact with this example.</p>
 
-      <h2>heading</h2>
-      <p>Content</p>
-      <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
+      <h2><span class="keyword">animation</span> </h2>
+      <p>The <span class="keyword">animation</span> property accepts all of the animation-subproperties, and will assume defaults for sub-properties that are not specified as values. The only ordering that matters is that duration must precede delay (if both sub-properties are specified). By convention, most people start with the animation-name, though, to help with clarity.</p>
+      <p>As an example, if someone wanted to create an animation called bounce that lasted 2 seconds and eased in both directions, they could use: <span class="keyword">animation: bounce 2s ease;</span> </p>
       
       <div id="bottom-nav">
         <a href="subproperties.html" id="previous-button" class="button">
