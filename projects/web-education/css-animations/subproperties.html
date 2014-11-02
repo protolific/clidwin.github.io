@@ -15,21 +15,39 @@
   <body>
     <div id="module">
     	<h1>CSS Animations: Animation Subproperties</h1>
-    	<p>Short introduction needed</p>
+    	<p>After keyframes are created, the next step is to call the keyframes and give parameters to the animation so that it can become an active element in the webpage. These parameters include timing, repetition, and directional elements, are set for the animation through animation sub-properties.</p>
+      <p>To apply animations to elements, pick the element(s) the animation will be applied to, and at minimum include the <span class="keyword">animation-name</span>, <span class="keyword">animation-duration</span>, and <span class="keyword">animation-iteration-count</span> sub-properties along with the other CSS styling you would like to apply. Also note that for all of the subproperties, vendor prefixes are needed. </p>
 
       <h2>Interactive Example</h2>
-      <p>Explain what the example shows</p>
+      <p>In this example, hovering over the  blue rectangle will slide the blue rectangle on top of the grey rectangle, exposiyeng a yellow rectangle where the blue rectangle was.</p>
       <div class="codepen-wrapper">
-        <p data-height="268" data-theme-id="0" data-slug-hash="smqbp" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/smqbp/' target="_blank">Functions Expanded</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+        <p data-height="268" data-theme-id="9039" data-slug-hash="gGBDk" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/gGBDk/'>Animation Subproperties</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
         <script async src="//codepen.io/assets/embed/ei.js"></script>
       </div>
-      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example.</p>
+      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can make the animation run infinitely on hover and last 4 seconds per cycle.</p>
 
-      <h2>heading</h2>
-      <p>Content</p>
-      <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
-      
-      <div id="bottom-nav">
+      <h2><span class="keyword">animation-name</span></h2>
+      <p>The subproperty that links an animation to its keyframe selector is <span class="keyword">animation-name</span>. Its value is the name given alongside the keyframes selector.</p>
+      <p>As an example, if a keyframe selector was set up with the variable name "bounce", the associated call to the animation would be <span class="keyword">animation-name: bounce;</span>.</p>
+
+      <h2><span class="keyword">animation-duration</span></h2>
+      <p><span class="keyword">animation-duration</span> describes how long the animation lasts, or in other words the amount of time between 0% and 100% or the from and to keyframes. Its value is a positive integer indicating the amount of time, followed by the character 's' to denote that the time is in seconds or 'ms' to denote the time is in milliseconds.</p>
+      <p>As an example, if an animation should last a total of 5 seconds, the subproperty text would be <span class="keyword">animation-duration: 5s;</span>.</p>
+
+      <h2><span class="keyword">animation-iteration-count</span></h2>
+      <p>To specify the number of times an animation should be executed, use the<span class="keyword">animation-iteration-count</span> subproperty. There are two possible values for this sub-property: the keyword 'infinite', which means play the animation as long as the page is opened on a browser, or a positive integer, which indicates the animation will occur that integer's number of times before returning to its starting state.</p>
+      <p>As an example, if an animation should occur 6 times before stopping, the subproperty text would be <span class="keyword">animation-iteration-count: 6;</span>.</p>
+
+      <h2><span class="keyword">animation-direction</span></h2>
+      <p>By default, CSS3 animations are played from 0% to 100% (or from to to), and then directly return to 0% (or from). Because this sometimes creates abrupt animation, the animation subproperty <span class="keyword">animation-iteration-count</span> provides a way to play the animation forward (from 0% to 100%) and then in reverse (100% to 0%).</p>
+      <p>The direction subproperty has two values: 'normal' to indicate that the animation should always be played from 0% to 100%, or 'alternate' to indicate the animation should switch between playing the animation in incrementing or decrementing percentage order. So as an example, to specify the keyframing direction should alternate, use 
+      <p>As an example, <span class="keyword">animation-direction: alternate;</span>.</p>
+
+      <h2><span class="keyword">animation-delay</span></h2>
+      <p>To put a pause before the start of an animation, use the <span class="keyword">animation-delay</span> subproperty. Just like duration, the value needs to be a positive integer followed by the specification 's' for second and 'ms' for millisecond.</p>
+      <p>As an example, if an animation should start after 3 seconds, this could be done through <span class="keyword">animation-delay: 3s;</span>.</p>
+
+      <div id="bottom-nav" >
         <a href="keyframes.html" id="previous-button" class="button">
           <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Keyframes
         </a>
