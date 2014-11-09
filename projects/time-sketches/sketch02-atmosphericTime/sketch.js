@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: October 20, 2014
+ * Modified On: November 5, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed, color relates to the temperature, etc.
@@ -26,6 +26,14 @@ var weather_state = 'VA';
 var temp_f;
 var wind_mph;
 var wind_degrees;
+var lines;
+var points;
+var tree;
+
+var LineSegment = function(point1, point2) {
+  this.point1 = point1;
+  this.point2 = point2;
+}
 
 /**
  * Pre-draw operations (only run once at startup by default)
@@ -43,16 +51,40 @@ function setup() {
   
   // Get initial weather data
   getData();
+  createPoints();
+  tree = new kdTree(points, distance, ["x", "y"]);
+  //createLines(points);
+  getNearest(10);
+}
+
+/**
+ * Retrieves the nearest X number of points to every given point, and maps the
+ * results to the lines array.
+ * 
+ * @param numberOfPoints The number of nearest points to retrieve per point.
+ */
+function getNearest(numberOfPoints) {
+  lines = [];
+  for (var i=0; i<points.length; i++) {
+    var nearest = tree.nearest(points[i], numberOfPoints);
+    for (var j=0; j<nearest.length; j++) {
+      lines[lines.length] = new LineSegment(points[i], nearest[j][0]);
+    }
+  }
 }
 
 /**
  * Operations that occur once per frame rendering
  */
 function draw() {
-  background(350, 100, 40);
+  background(350, 0, 60);
   textSize(28);
   text(wind_mph, 0, 20);
   text(wind_degrees, 0, 80);
+  
+  for (var j=0; j<lines.length; j++) {
+    line(lines[j].point1.x, lines[j].point1.y, lines[j].point2.x, lines[j].point2.y);
+  }
 }
 
 /**
@@ -79,4 +111,35 @@ function getData() {
       alert(parsed_json);
     }
   });
+}
+
+/**
+ * Creates lines between the points created.
+ */
+function createLines(points) {
+  lines = [];
+  for (var i=0; i<points.length; i++) {
+    for (var j=0; j<points.length; j++) {
+      if (abs(points[i].x - points[j].x) < 100 
+          && abs(points[i].y - points[j].y) < 100) {
+        lines[lines.length] = new LineSegment(points[i], points[j]);
+      }
+    }
+  }
+}
+
+function distance(a, b) {
+  var dx = a.x-b.x;
+  var dy = a.y-b.y;
+  return dx*dx + dy*dy;
+}
+
+/**
+ * Creates a random set of points in the image.
+ */
+function createPoints() {
+  points = [];
+  for (var i=0; i<200; i++) {
+    points[i] = {x: random(width), y: random(height), id: i};
+  }
 }
