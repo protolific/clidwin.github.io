@@ -13,11 +13,72 @@
   </head>
 
   <body>
+    <div id="navbar">
+        <div class="navbar-wrapper">
+        <div id="navbar-title">WEB TUTORIALS</div>
+        <ul id="navbar-menu">
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/about.html">About</a>
+            </li>
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/css-transforms/index.html">Modules</a>
+            </li>
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/resources.html">Resources</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    <div id="module-navbar">
+      <div id="module-navbar-wrapper" class="navbar-wrapper">
+        <div id="module-navbar-section-title">CSS TRANSFORMS:</div>
+        <ul id="module-menu">
+            <a href="index.html">
+                <li id="module-section-active" class="module-menu-item">Overview</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-right-open-mini"></span>
+            </li>
+            <a href="basic-functions.html">
+                <li class="module-menu-item">Basic Functions</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-right-open-mini"></span>
+            </li>
+            <a href="matricies.html">
+                <li class="module-menu-item">Matricies</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-right-open-mini"></span>
+            </li>
+            <a href="origins.html">
+                <li class="module-menu-item">Origins</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-right-open-mini"></span>
+            </li>
+            <a href="perspective.html">
+                <li class="module-menu-item">Perspective</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-right-open-mini"></span>
+            </li>
+            <a href="references.html">
+                <li class="module-menu-item">Module References</li>
+            </a>
+        </ul>
+      </div>
+    </div>
     <div id="module">
     	<h1>Module 2: CSS Transforms</h1>
-    	<p>No matter what tool(s) you use to create a mockup of your designs, it is useful to understand how to tweak styling through code so that you can transform your designs into live websites. Knowing CSS is essential to this process and understanding some of the technical sophistication for concepts such as responsiveness and platform inconsistencies will help inform your design decisions as well.</p>
-      <p>This section builds on the principles of basic CSS and delves into the concept of transforms, a CSS3 property allows web designers and developers to perform actions such as translations, rotations, skewing, and applying perspectives. Transforms not only provide alterations to static content, but also can be used to provide visual interest in CSS3 animations (which will be further discussed in the next module).</p>
-
+        <div id="module-sample">
+            <div id="module-sample-wrapper">
+                <div id="transforms-ball"></div>
+            </div>
+        </div>
+      <p>This section builds on the principles of basic CSS and delves into the concept of transforms, a CSS3 property that allows web designers and developers to perform alterations such as translations, rotations, skews, and perspectives. Transforms not only provide these capabilities to static content, but also can be used to provide visual interest in CSS3 animations (which will be further discussed in the next module).</p>
+        <p>The blue square demonstrates some of the transforms that will be discussed in this module. By hovering on this square, an animation will play showing the transforms of rotate, scale, and translate are applied on a two second interval.</p>
+        <div class="spacer"></div>
     	<h2>Overview</h2>
       <p>A <span class="keyword">transform</span> in CSS is a property that changes the way an element interacts with the grid structure of the DOM (Document Object Model, or element hierarchy). The property affects the element similar to the Marquee tools in Photoshop, manipulating the element as a whole instead of each of its contents individually.</p>
 
@@ -25,23 +86,67 @@
 
       <h2>Module Topics</h2>
       <div id="module-topics">
-        <div class="module-topic-column">
-          <a href="basic-functions.html"><h3>Basic Functions</h3></a>
-
-          <a href="functions-expanded.html"><h3>Functions Expanded</h3></a>
-
-          <a href="origins.html"><h3>Origins</h3></a>
-        </div>
-
-        <div class="module-topic-column">
-          <a href="perspective.html"><h3>Perspective</h3></a>
-
-        	<a href="references.html"><h3>References</h3></a>
-        </div>
+          <a class="module-block-link" href="basic-functions.html">
+              <div class="module-block">
+                <div class="module-block-title">
+                    Functions
+                </div>
+                <div class="module-block-desc">
+                    Various possibilities for applying and using transforms.
+                </div>
+              </div>
+          </a>
+          <a class="module-block-link" href="matricies.html">
+          <div class="module-block">
+            <div class="module-block-title">
+                Matricies
+            </div>
+            <div class="module-block-desc">
+                The most flexible of transform functions.
+            </div>
+          </div>
+          <a class="module-block-link" href="origins.html">
+              <div class="module-block">
+                <div class="module-block-title">
+                    Origins
+                </div>
+                <div class="module-block-desc">
+                    The focal point or central location for the transform.
+                </div>
+              </div>
+          </a>
+          <a class="module-block-link" href="perspective.html">
+              <div class="module-block">
+                <div class="module-block-title">
+                    Perspective
+                </div>
+                <div class="module-block-desc">
+                    The distance from the transform to a screen.
+                </div>
+              </div>
+          </a>
+          <a class="module-block-link" href="references.html">
+              <div class="module-block">
+                  <div class="module-block-title">
+                    References
+                </div>
+                  <div class="module-block-desc">
+                    Sources used in and additional reading for this module.
+                </div>
+              </div>
+          </a>
+          <a class="module-block-link" href="basic-functions.html">
+              <div class="module-block next-section-block">
+                  <div class="module-block-title">
+                    Next Section
+                </div>
+                  <div class="module-block-desc">
+                    Starting with transform functions.
+                </div>
+              </div>
+            </a>
       </div>
-      <a href="basic-functions.html" id="next-button" class="button">
-        <strong>Next Section:</strong> Basic Functions <span class="entypo-right-thin"></span>
-      </a>
+      </div>
     </div>
   </body>
 </html>
