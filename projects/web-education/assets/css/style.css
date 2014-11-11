@@ -369,3 +369,16 @@ li {
     height: 120px;
     width: 100%;
 }
+
+.challenge-block {
+    position: absolute;
+    background-color: #e2a3a3;
+    border-radius: 5px;
+    font-size: 0.8em;
+    max-width: 150px;
+    padding: 15px;
+}
+
+.challenge-block h2 {
+    margin-top: 0;
+}
