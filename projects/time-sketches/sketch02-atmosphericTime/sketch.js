@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: November 5, 2014
+ * Modified On: November 10, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed, color relates to the temperature, etc.
@@ -54,23 +54,7 @@ function setup() {
   createPoints();
   tree = new kdTree(points, distance, ["x", "y"]);
   //createLines(points);
-  getNearest(10);
-}
-
-/**
- * Retrieves the nearest X number of points to every given point, and maps the
- * results to the lines array.
- * 
- * @param numberOfPoints The number of nearest points to retrieve per point.
- */
-function getNearest(numberOfPoints) {
-  lines = [];
-  for (var i=0; i<points.length; i++) {
-    var nearest = tree.nearest(points[i], numberOfPoints);
-    for (var j=0; j<nearest.length; j++) {
-      lines[lines.length] = new LineSegment(points[i], nearest[j][0]);
-    }
-  }
+  //getNearest(10);
 }
 
 /**
@@ -78,6 +62,7 @@ function getNearest(numberOfPoints) {
  */
 function draw() {
   background(350, 0, 60);
+  getNearest(8);
   textSize(28);
   text(wind_mph, 0, 20);
   text(wind_degrees, 0, 80);
@@ -114,6 +99,29 @@ function getData() {
 }
 
 /**
+ * Retrieves the nearest X number of points to every given point, and maps the
+ * results to the lines array.
+ * 
+ * @param numberOfPoints The number of nearest points to retrieve per point.
+ */
+function getNearest(numberOfPoints) {
+  lines = [];
+  for (var i=0; i<points.length; i++) {
+    fill(220, random(100), 50);
+    //noFill();
+    beginShape();
+    var nearest = tree.nearest(points[i], numberOfPoints);
+    vertex(points[i].x, points[i].y);
+    for (var j=0; j<nearest.length; j++) {
+      var point = nearest[j][0];
+      vertex(point.x, point.y);
+      lines[lines.length] = new LineSegment(points[i], point);
+    }
+    endShape(CLOSE);
+  }
+}
+
+/**
  * Creates lines between the points created.
  */
 function createLines(points) {
@@ -139,7 +147,15 @@ function distance(a, b) {
  */
 function createPoints() {
   points = [];
+  var xOff = 0;
+  var yOff = 0;
   for (var i=0; i<200; i++) {
-    points[i] = {x: random(width), y: random(height), id: i};
+    for (var j=0; j<50; j++) {
+      var xPos = noise(xOff + 2*i) * width;
+      var yPos = noise(yOff - 2*i) * height;
+      points[i] = {x: xPos, y: yPos, id: i};
+      xOff += 5;
+      yOff += 5;
+    }
   }
 }

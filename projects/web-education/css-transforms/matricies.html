@@ -13,6 +13,7 @@
   </head>
 
   <body>
+      <div id="navigation-wrapper">
       <div id="navbar">
         <div class="navbar-wrapper">
         <div id="navbar-title">WEB TUTORIALS</div>
@@ -69,6 +70,10 @@
         </ul>
       </div>
     </div>
+      </div>
+      <div id="sidebar-quicklinks">
+        <a class="quicklink" href="#matrix">matrix</a>
+    </div>
     <div id="module">
     	<h1>CSS Transforms: Matricies</h1>
     	<p>Rotate, scale, skew, and translate apply several different types of transformations to an element on their own, but Another CSS transform property is the matrix function, which combines rotate, translate, scale, and transform into a single function that relies on matrix multiplication and mathematics.</p>
@@ -85,8 +90,8 @@
       <p>In all of the transforms we've talked about so far (rotate, scale, skew, translate), we can also append to the function name a capitalized character indicating the dimension we want to apply the transform to. This then changes our inputs to this function so that it only takes a single argument, the value for the transform.</p>
       <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
 
-      <h2><span class="keyword">matrix()</span></h2>
-      <p>The matrix function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations<sup>[1]</sup>.</p>
+      <h2 id="matrix">matrix</h2>
+      <p>The <span class="keyword">matrix()</span> function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations<sup>[1]</sup>.</p>
 
       <p>As an example, if someone wanted to scale a square and rotate it 45 degrees, they might use the CSS <span class="keyword">transform:  matrix(1, -1, 1, 1, 20, 20);</span>.As an alternative, they could use the rotate, translate, and scale functions all listed after the transform property.</p> 
       
@@ -96,13 +101,14 @@
           <sup>[1]</sup> More explanation of how the matrix arguments are structured can be best understood in an <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/" target="_blank">introduction to matrix algebra</a>.
         </div>
       </div>
-
+</div>
+      <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">
-        <a href="basic-functions.html" id="previous-button" class="button">
+        <a href="basic-functions.html" id="previous-button" class="button-link">
           <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Basic Functions 
         </a>
 
-         <a href="origins.html" id="next-button" class="button">
+         <a href="origins.html" id="next-button" class="button-link">
           <strong>Next Section:</strong> Origins <span class="entypo-right-thin"></span>
         </a>
       </div>

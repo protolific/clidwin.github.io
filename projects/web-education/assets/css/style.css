@@ -26,13 +26,13 @@ h1 {
 h2 {
 	font-size: 1.4em;
 	font-weight: 400;
-	margin: 30px 0 10px 0;
+	margin: 40px 0 10px 0;
 }
 
 h3 {
 	font-size: 1.2em;
 	font-weight: 400;
-	margin: 5px 0 15px 0;
+	margin: 25px 0 15px 0;
 }
 
 p {
@@ -74,8 +74,8 @@ li {
 
 /* Navigation */
 #navbar {
-    background-color: #555;
-    color: #ddd;
+    background-color: #2386C8;
+    color: #fff;
     font-weight: 400;
     font-size: 1.2em;
     height: 75px;
@@ -113,7 +113,7 @@ li {
 
 .navbar-menu-item-text {
     line-height: 75px;
-    color: #ccc;
+    color: #eee;
     text-decoration: none;
 }
 
@@ -190,7 +190,7 @@ li {
 }
 
 .keyword{
-	background-color: #cfcfcf;
+	background-color: #C7DDEA;
 	border-radius: 3px;
 	font-family: 'Courier', serif;
 	margin: 0 2px;
@@ -208,13 +208,21 @@ li {
 }
 
 /* Ids */
-#bottom-nav {
+#bottom-nav-wrapper {
+    background-color: #ccc;
+    position: fixed;
+    bottom: 0;
 	clear: both;
+    width: 100%;
+}
+#bottom-nav {
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 #module {
 	max-width: 905px;
-	margin: 30px auto;
+	margin: 150px auto 90px auto;
 }
 
 #module-index-link {
@@ -246,6 +254,11 @@ li {
 
 #previous-button {
 	float: left;
+}
+
+.button-link {
+    height: 60px;
+    line-height: 60px;
 }
 
 /* Page-Specific */
@@ -310,4 +323,32 @@ li {
 .next-section-block {
     background-color: #2386C8;
     color: #eee;
+}
+
+#navigation-wrapper {
+    position: fixed;
+    clear: both;
+    top: 0;
+    width: 100%;
+}
+
+#sidebar-quicklinks {
+    left: 0;
+    position: fixed;
+    top: 150px;
+}
+
+.quicklink {
+    background-color: #A3C9E2;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #2386C8;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
+
+.quicklink:hover {
+    cursor: pointer;
+    font-weight: 400;
 }

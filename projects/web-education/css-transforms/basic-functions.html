@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <div id="navigation-wrapper">
     <div id="navbar">
         <div class="navbar-wrapper">
         <div id="navbar-title">WEB TUTORIALS</div>
@@ -69,6 +70,13 @@
         </ul>
       </div>
     </div>
+        </div>
+    <div id="sidebar-quicklinks">
+        <a class="quicklink" href="#rotate">rotate</a>
+        <a class="quicklink" href="#scale">scale</a>
+        <a class="quicklink" href="#skew">skew</a>
+        <a class="quicklink" href="#translate">translate</a>
+    </div>
     <div id="module">
     	<h1>CSS Transforms: Basic Functions</h1>
     	<p>The values of the CSS transform property are functions written in the form of a keyword, followed by parentheses enclosing values that help specify how to apply the transform. This syntax is similar to the function <span class="keyword">url()</span>, which can be used to specify a background image, import a font, or otherwise link to a resource that cannot be created inside the CSS stylesheet.</p>
@@ -82,23 +90,23 @@
       </div>
       <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can change the cyan square to rotate -25 degrees, the magenta square scale to three-quarters of its original size, the yellow square skew 45 degrees in the opposite direction, and the dark grey scale translated 30px to the left and 50px lower on the page.</p>
 
-      <h2><span class="keyword">rotate()</span></h2>
-      <p>The rotate function moves an element around a point in space (if unspecified, the center). It takes in one argument, the number of degrees to rotate, and that value must have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
+      <h2 id="rotate">rotate</h2>
+      <p>The <span class="keyword">rotate()</span> function moves an element around a point in space (if unspecified, the center). It takes in one argument, the number of degrees to rotate, and that value must have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
 
       <p>As an example, if someone wanted to rotate a square 45 degrees, they could define this in their css as  <span class="keyword">transform: rotate(45deg);</span>.</p>
 
-      <h2><span class="keyword">scale()</span></h2>
-      <p>The scale function changes the size of an element. To uniformly scale the element, use one number as the single argument to the function. To change the horizontal and vertical scaling, use two arguments, where the first argument is the value of the horizontal scaling, and the second argument is the value of the vertical scaling. In both forms of this function (one or two arguments), the number can be positive or negative and can be either an integer or decimal.</p>
+      <h2 id="scale">scale</h2>
+      <p>The <span class="keyword">scale()</span> function changes the size of an element. To uniformly scale the element, use one number as the single argument to the function. To change the horizontal and vertical scaling, use two arguments, where the first argument is the value of the horizontal scaling, and the second argument is the value of the vertical scaling. In both forms of this function (one or two arguments), the number can be positive or negative and can be either an integer or decimal.</p>
 
       <p>As an example, if someone wanted a square to be half its normal size, they could define this in their css as <span class="keyword">transform: scale(0.5);</span>.</p>
 
-      <h2><span class="keyword">skew()</span></h2>
-      <p>The skew function changes the element's boundary angles. To skew the entire element at the same angle, use one value as the single argument to the function. To change the horizontal and vertical skew, use two arguments, where the first argument is the angle of the horizontal skew, and the second argument is the angle of the vertical skew. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
+      <h2 id="skew">skew</h2>
+      <p>The <span class="keyword">skew()</span> function changes the element's boundary angles. To skew the entire element at the same angle, use one value as the single argument to the function. To change the horizontal and vertical skew, use two arguments, where the first argument is the angle of the horizontal skew, and the second argument is the angle of the vertical skew. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
 
       <p>As an example, if someone wanted to skew a square 30 degrees, they could define this in their css as <span class="keyword">transform: skew(30deg);</span>.</p>
 
-      <h2><span class="keyword">translate()</span></h2>
-      <p>The translate function changes the drawn position. To translate in the x direction, use one argument. To translate horizontally and vertically, use two arguments, where the first argument is the angle of the horizontal shift, and the second argument is the angle of the vertical shift. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">px</span>) to specify length type being referenced <sup>[2]</sup>.</p>
+      <h2 id="translate">translate</h2>
+      <p>The <span class="keyword">translate()</span> function changes the drawn position. To translate in the x direction, use one argument. To translate horizontally and vertically, use two arguments, where the first argument is the angle of the horizontal shift, and the second argument is the angle of the vertical shift. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">px</span>) to specify length type being referenced <sup>[2]</sup>.</p>
 
       <p>As an example, if someone wanted to draw a square 50px to the left of its origin, they could define this in their css as the transform <span class="keyword">transform: translate(50px);</span>.</p>
       
@@ -111,15 +119,17 @@
           <sup>[2]</sup> Pixels are one type of input into the translate function, but this function accepts any of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length" target="_blank">length data types</a> as possible values.
         </div>
       </div>
-      <div id="bottom-nav">
-        <a href="index.html" id="previous-button" class="button">
+        </div>
+      <div id="bottom-nav-wrapper" >
+      <div id="bottom-nav" >
+        <a href="index.html" id="previous-button" class="button-link">
           <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Transforms Overview 
         </a>
 
-         <a href="matricies.html" id="next-button" class="button">
+         <a href="matricies.html" id="next-button" class="button-link">
           <strong>Next Section:</strong> Matricies <span class="entypo-right-thin"></span>
         </a>
       </div>
-    </div>
+          </div>
   </body>
 </html>
