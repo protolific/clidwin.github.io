@@ -1,0 +1,28 @@
+.example-canvas {
+    height: 150px;
+    position: relative;
+    width: 100%;
+}
+
+.square {
+    background-color: #2386C8;
+    border-radius: 3px;
+    height: 50px;
+    width: 50px;
+}
+
+.underlay {
+    background-color: #ccc;
+}
+
+.left-align {
+    position: absolute;
+    top: 50px;
+    left: 25%;
+}
+
+.right-align {
+    position: absolute;
+    top: 50px;
+    right: 25%;
+}

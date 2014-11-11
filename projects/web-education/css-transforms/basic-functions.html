@@ -94,21 +94,44 @@
       <p>The <span class="keyword">rotate()</span> function moves an element around a point in space (if unspecified, the center). It takes in one argument, the number of degrees to rotate, and that value must have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
 
       <p>As an example, if someone wanted to rotate a square 45 degrees, they could define this in their css as  <span class="keyword">transform: rotate(45deg);</span>.</p>
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform: rotate(45deg);"></div>
+        </div>
 
       <h2 id="scale">scale</h2>
       <p>The <span class="keyword">scale()</span> function changes the size of an element. To uniformly scale the element, use one number as the single argument to the function. To change the horizontal and vertical scaling, use two arguments, where the first argument is the value of the horizontal scaling, and the second argument is the value of the vertical scaling. In both forms of this function (one or two arguments), the number can be positive or negative and can be either an integer or decimal.</p>
 
       <p>As an example, if someone wanted a square to be half its normal size, they could define this in their css as <span class="keyword">transform: scale(0.5);</span>.</p>
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform: scale(0.5);"></div>
+        </div>
 
       <h2 id="skew">skew</h2>
       <p>The <span class="keyword">skew()</span> function changes the element's boundary angles. To skew the entire element at the same angle, use one value as the single argument to the function. To change the horizontal and vertical skew, use two arguments, where the first argument is the angle of the horizontal skew, and the second argument is the angle of the vertical skew. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">deg</span>) to specify the input type <sup>[1]</sup>.</p>
 
       <p>As an example, if someone wanted to skew a square 30 degrees, they could define this in their css as <span class="keyword">transform: skew(30deg);</span>.</p>
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform: skew(30deg);"></div>
+        </div>
 
       <h2 id="translate">translate</h2>
       <p>The <span class="keyword">translate()</span> function changes the drawn position. To translate in the x direction, use one argument. To translate horizontally and vertically, use two arguments, where the first argument is the angle of the horizontal shift, and the second argument is the angle of the vertical shift. In all cases, the value must also have a unit specified with it (such as  <span class="keyword">px</span>) to specify length type being referenced <sup>[2]</sup>.</p>
 
-      <p>As an example, if someone wanted to draw a square 50px to the left of its origin, they could define this in their css as the transform <span class="keyword">transform: translate(50px);</span>.</p>
+      <p>As an example, if someone wanted to draw a square 25px to the right of its origin, they could define this in their css as the transform <span class="keyword">transform: translate(25px);</span>.</p>
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform: translate(25px);"></div>
+        </div>
       
       <div id="footnote-wrapper">
         <h3>Footnotes</h3>

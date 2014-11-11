@@ -90,6 +90,12 @@
       <p>Syntactically, the <span class="keyword">transform-origin</span> property can take 1, 2, or 3 values. In the one value model, the length provided describes the horizontal and vertical positioning of the origin, and the offsets are based on the top left corner of the element. In the two value model, the first value is the horizontal offset for the origin, and the second argument is the vertical offset for the origin. The three value model uses x, y, and z as the offset for the origin.</p>
       <p>Just like the <span class="keyword">margin</span> property, it is possible to combine <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length" target="_blank">length values</a> and keywords such as <span class="keyword">top</span>, <span class="keyword">bottom</span>, <span class="keyword">left</span>, <span class="keyword">right</span>, and <span class="keyword">center</span>. When using a keyword, the keyword does not need to go in the order specified above; it can appear out of order (except in the case of center), but as a good rule of thumb, follow the convention of listing the x offset first, followed by the y offset, followed by the z offset as applicable.</p>
       <p>As an example, if someone wanted to rotate a square from its bottom right corner, they might use the CSS <span class="keyword">transform-origin: right bottom;</span>.</p>
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform-origin: right bottom; transform: rotate(45deg);"></div>
+        </div>
 </div>
       <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">

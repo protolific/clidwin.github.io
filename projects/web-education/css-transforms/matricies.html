@@ -89,11 +89,22 @@
       <h2>Transforms in One Dimension</h2>
       <p>In all of the transforms we've talked about so far (rotate, scale, skew, translate), we can also append to the function name a capitalized character indicating the dimension we want to apply the transform to. This then changes our inputs to this function so that it only takes a single argument, the value for the transform.</p>
       <p>This means that if we wanted to just scale a square in the y direction, we could do so by using the CSS <span class="keyword">transform:  scaleY(1.5);</span>.</p>
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align" style="transform: scaleY(1.5);"></div>
+        </div>
 
       <h2 id="matrix">matrix</h2>
       <p>The <span class="keyword">matrix()</span> function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations<sup>[1]</sup>.</p>
 
-      <p>As an example, if someone wanted to scale a square and rotate it 45 degrees, they might use the CSS <span class="keyword">transform:  matrix(1, -1, 1, 1, 20, 20);</span>.As an alternative, they could use the rotate, translate, and scale functions all listed after the transform property.</p> 
+      <p>As an example, if someone wanted to scale a square to twice its original size and rotate it 45 degrees, they might use the CSS <span class="keyword">transform:  matrix(1, -1, 1, 1, 20, 20);</span>.As an alternative, they could use the rotate, translate, and scale functions all listed after the transform property.</p> 
+        
+        <div class="example-canvas">
+            <div class="square left-align"></div>
+            <div class="square right-align underlay"></div>
+            <div class="square right-align" style="transform: matrix(1, -1, 1, 1, 20, 20);"></div>
+        </div>
       
       <div id="footnote-wrapper">
         <h3>Footnotes</h3>

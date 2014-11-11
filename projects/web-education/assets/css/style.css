@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url('reset.css');
+@import url('transform-examples.css');
 
 /* General Selectors */
 html {
@@ -154,6 +155,10 @@ li {
     padding: 0 3px;
 }
 
+.module-menu-item:hover {
+    text-decoration: underline;
+}
+
 #module-section-active {
     color: #666;
     font-weight: 400;
@@ -221,6 +226,7 @@ li {
 }
 
 #module {
+    clear: both;
 	max-width: 905px;
 	margin: 150px auto 90px auto;
 }
@@ -290,13 +296,18 @@ li {
 }
 
 .module-block {
-    background-color: #ccc;
+    background-color: #C7DDEA;
     border-radius: 5px;
     display: inline-block;
     height: 131px;
     margin-right: 19px;
     position: relative;
     width: 128px;
+}
+
+.module-block:hover {
+    color: #fff;
+    background-color: #6CADD7;
 }
 
 .module-block-link {
@@ -330,6 +341,7 @@ li {
     clear: both;
     top: 0;
     width: 100%;
+    z-index: 2;
 }
 
 #sidebar-quicklinks {
@@ -351,4 +363,9 @@ li {
 .quicklink:hover {
     cursor: pointer;
     font-weight: 400;
+}
+
+#top-spacer {
+    height: 120px;
+    width: 100%;
 }
