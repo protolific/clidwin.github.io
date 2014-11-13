@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: November 10, 2014
+ * Modified On: November 13, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed, color relates to the temperature, etc.
@@ -16,9 +16,10 @@
  *    windy, etc. I thought that the topic would make an interesting abstract
  *    piece.
  * 
- * Interactivity: 
+ * Interactivity: None specified (yet). Maybe allow the capability to enter in
+ *    a custom city/state.
  * 
- * TODOS: 
+ * TODOS: Connect motion, color, etc to weather data
  */
  
 var weather_city = 'Blacksburg';
@@ -26,13 +27,29 @@ var weather_state = 'VA';
 var temp_f;
 var wind_mph;
 var wind_degrees;
-var lines;
-var points;
-var tree;
+var triangles;
 
-var LineSegment = function(point1, point2) {
-  this.point1 = point1;
-  this.point2 = point2;
+/**
+ * Custom triangle class.
+ */
+var Triangle = function(point1X, point1Y, velocityX, velocityY) {
+  //TODO(clidwin): Translate these points into PVectors
+  this.point1X = point1X;
+  this.point1Y = point1Y;
+  this.point2X = random(25, 100);
+  this.point2Y = random(25, 100);
+  this.point3X = random(25, 100);
+  this.point3Y = 0 - random(25, 100);
+  
+  this.saturation = random(15, 100);
+  
+  //TODO(clidwin): Use PVectors and make Velocity an argument
+  this.velocityX = velocityX;
+  this.velocityY = velocityY;
+  
+  //TODO(clidwin): Make rotation an argument.
+  this.rotationFactor = random(-5, 5);
+  this.rotation = this.rotationFactor;
 }
 
 /**
@@ -50,33 +67,85 @@ function setup() {
   background(350, 100, 40);
   
   // Get initial weather data
-  getData();
-  createPoints();
-  tree = new kdTree(points, distance, ["x", "y"]);
-  //createLines(points);
-  //getNearest(10);
+  //getData();
+  createTriangles();
 }
 
 /**
  * Operations that occur once per frame rendering
  */
 function draw() {
-  background(350, 0, 60);
-  getNearest(8);
-  textSize(28);
-  text(wind_mph, 0, 20);
-  text(wind_degrees, 0, 80);
+  background(35, 20, 100);
+  //TODO(clidwin): draw a gradient
+  //Linear gradient: https://processing.org/examples/lineargradient.html
+  //Radial gradient: https://www.processing.org/examples/radialgradient.html
   
-  for (var j=0; j<lines.length; j++) {
-    line(lines[j].point1.x, lines[j].point1.y, lines[j].point2.x, lines[j].point2.y);
+  /*textSize(28);
+  text(wind_mph, 0, 20);
+  text(wind_degrees, 0, 80);*/
+  
+  stroke(0,0,0);
+  strokeWeight(2);
+  
+  // Draw all of the triangles on the canvas
+  for (var i=0; i<triangles.length; i++) {
+    fill(35, triangles[i].saturation, 100);
+    
+    push();
+    translate(triangles[i].point1X, triangles[i].point1Y);
+    rotate(triangles[i].rotation);
+    triangle(
+      0, 0, // First point of triangle
+      triangles[i].point2X, triangles[i].point2Y, // Second point of triangle
+      triangles[i].point3X, triangles[i].point3Y); // Third point of triangle
+    pop();
+    
+    moveTriangle(triangles[i]);
   }
 }
 
 /**
- * Uses AJAX to query weather underground for information on the 
+ * Updates information on where and how a triangle should be drawn.
+ * @param triangle The triangle to update.
+ */
+function moveTriangle(triangle) {
+  // Handle the case when an X value has gone out of bounds.
+  if (triangle.point1X >= width || triangle.point1X <= 0 ||
+        triangle.point1X >= width || triangle.point1X <= 0 ||
+        triangle.point1X + triangle.point2X >= width || 
+        triangle.point1X + triangle.point2X <= 0 ||
+        triangle.point1X + triangle.point3X >= width || 
+        triangle.point1X + triangle.point3X <= 0) {
+      triangle.velocityX = triangle.velocityX * (-1);
+    }
+  
+  // Handle the case when the Y value has gone out of bounds.
+  if (triangle.point1Y > width || triangle.point1Y <= 0 ||
+      triangle.point1Y >= width || triangle.point1Y <= 0 ||
+      triangle.point1Y + triangle.point2Y >= width || 
+      triangle.point1Y + triangle.point2Y <= 0 ||
+      triangle.point1Y + triangle.point3Y >= width || 
+      triangle.point1Y + triangle.point3Y <= 0) {
+    triangle.velocityY = triangle.velocityY * (-1);
+  }
+    
+  // Scale back rotation value when it's larger than 360 degrees.
+  if (triangle.rotation >= 360) {
+    triangle.rotation -= 360;
+  }
+  
+  // Update velocity and rotation.
+  triangle.point1X += triangle.velocityX;
+  triangle.point1Y += triangle.velocityY;
+  triangle.rotation += triangle.rotationFactor;
+}
+
+/**
+ * Uses AJAX to query weather underground for information on the current
+ * conditions. Response comes in as a JSON packet, so the information is parsed
+ * into local variables.
  */
 function getData() {
-  //TODO: Generate a current city based on entered data
   var weatherUrl = 
       'http://api.wunderground.com/api/eac387d283139277/geolookup/conditions/q/' 
       + weather_state+ '/' + weather_city + '.json';
@@ -99,63 +168,25 @@ function getData() {
 }
 
 /**
- * Retrieves the nearest X number of points to every given point, and maps the
- * results to the lines array.
- * 
- * @param numberOfPoints The number of nearest points to retrieve per point.
+ * Creates triangles based on the created points.
  */
-function getNearest(numberOfPoints) {
-  lines = [];
-  for (var i=0; i<points.length; i++) {
-    fill(220, random(100), 50);
-    //noFill();
-    beginShape();
-    var nearest = tree.nearest(points[i], numberOfPoints);
-    vertex(points[i].x, points[i].y);
-    for (var j=0; j<nearest.length; j++) {
-      var point = nearest[j][0];
-      vertex(point.x, point.y);
-      lines[lines.length] = new LineSegment(points[i], point);
-    }
-    endShape(CLOSE);
-  }
-}
-
-/**
- * Creates lines between the points created.
- */
-function createLines(points) {
-  lines = [];
-  for (var i=0; i<points.length; i++) {
-    for (var j=0; j<points.length; j++) {
-      if (abs(points[i].x - points[j].x) < 100 
-          && abs(points[i].y - points[j].y) < 100) {
-        lines[lines.length] = new LineSegment(points[i], points[j]);
-      }
-    }
-  }
-}
-
-function distance(a, b) {
-  var dx = a.x-b.x;
-  var dy = a.y-b.y;
-  return dx*dx + dy*dy;
-}
-
-/**
- * Creates a random set of points in the image.
- */
-function createPoints() {
-  points = [];
+function createTriangles() {
+  triangles = [];
+  
   var xOff = 0;
   var yOff = 0;
-  for (var i=0; i<200; i++) {
-    for (var j=0; j<50; j++) {
-      var xPos = noise(xOff + 2*i) * width;
-      var yPos = noise(yOff - 2*i) * height;
-      points[i] = {x: xPos, y: yPos, id: i};
-      xOff += 5;
-      yOff += 5;
-    }
+  
+  for (var i=0; i<100; i++) {
+    // Find the first point's x and y values.
+    var xPos = noise(xOff + 2*i) * width;
+    var yPos = noise(yOff - 2*i) * height;
+    
+    // Create the triangle object.
+    triangles[triangles.length] 
+        = new Triangle(xPos, yPos, random(-2, 2), random(-2, 2));
+    
+    // Update the offset values.
+    xOff += 20;
+    yOff += 20;
   }
 }
