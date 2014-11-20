@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: November 18, 2014
+ * Modified On: November 19, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed/direction, color relates to the temperature, etc.
@@ -23,15 +23,18 @@
  */
 
 // Visual Elements
-var triangles;
 var hue;
+var rotationFactorLimit;
+var triangles;
+var velocityLimit;
+var weatherLogo;
 
 // Weather Elements
 var weather_city = 'Blacksburg';
 var weather_state = 'VA';
+var api_key = 'eac387d283139277';
 var temp_f;
 var wind_mph;
-var wind_degrees;
 
 /**
  * Custom triangle class.
@@ -63,9 +66,15 @@ function setup() {
   
   // Create color settings.
   colorMode(HSB, 360, 100, 100);
-  background(350, 100, 40);
+  background(350, 100, 90);
   
-  createTriangles();
+  // Initialize Visual Elements
+  hue = 180;
+  rotationFactorLimit = 1;
+  velocityLimit = 1;
+  weatherLogo = loadImage('wUndergroundLogo.png');
+
+  // Capture Weather Data.
   parseWeatherData();
 }
 
@@ -73,10 +82,8 @@ function setup() {
  * Operations that occur once per frame rendering
  */
 function draw() {
+  // Draw gradient background
   background(hue, 100, 90);
-
-  //draw a gradient
-  //drawLinearGradient()
   drawRadialGradient(width/2, height/2);
   
   /*fill(0);
@@ -84,13 +91,10 @@ function draw() {
   text(wind_mph, 0, 20);
   text(wind_degrees, 0, 80);*/
   
-  // Applying a stroke for the triangles.
-  stroke(350,0,0, 75);
-  strokeWeight(1);
   noStroke();
   
   // Draw all of the triangles on the canvas
-  for (var i=0; i<triangles.length; i++) {
+  for (var i=0; triangles && i<triangles.length; i++) {
     fill(hue, triangles[i].saturation, 90);
     
     push();
@@ -107,6 +111,18 @@ function draw() {
     
     moveTriangle(triangles[i]);
   }
+  
+  // Draw credits
+  colorMode(RGB);
+  tint(255, 125);
+  image(
+    weatherLogo, 
+    width - weatherLogo.width, // image x position (top-left corner)
+    height - weatherLogo.height, // image y position (top-left corner)
+    weatherLogo.width, // image width
+    weatherLogo.height // image height
+    );
+  colorMode(HSB);
 }
 
 /**
@@ -191,7 +207,7 @@ function moveTriangle(triangle) {
  */
 function parseWeatherData() {
   var weatherUrl = 
-      'http://api.wunderground.com/api/eac387d283139277/geolookup/conditions/q/' 
+      'http://api.wunderground.com/api/' + api_key + '/geolookup/conditions/q/' 
       + weather_state+ '/' + weather_city + '.json';
   
   $.ajax({
@@ -202,10 +218,11 @@ function parseWeatherData() {
       weather_city = parsed_json['location']['city'];
       weather_state = parsed_json['location']['state'];
       temp_f = parsed_json['current_observation']['temp_f'];
-      wind_degrees = parsed_json['current_observation']['wind_degrees'];
       wind_mph = parsed_json['current_observation']['wind_mph'];
       
       setHue();
+      setVelocityAndRotationFactor();
+      createTriangles();
     },
     error: function(parsed_json) {
       alert(parsed_json);
@@ -218,20 +235,46 @@ function parseWeatherData() {
  */
 function setHue() {
   if (temp_f < 0) {
-    hue = 264; // Violet
+    hue = 275; // Violet
   } else if (temp_f < 17) {
     hue = 224; // Dark Blue
   } else if (temp_f < 33) {
     hue = 208; // Medium Blue
   } else if (temp_f < 50) {
-    hue = 181; // Light Blue
+    hue = 192; // Light Blue
   } else if (temp_f < 68) {
-    hue = 131; // Green
+    hue = 45; // Green
   } else if (temp_f < 86) {
-    hue = 59; // Yellow
+    hue = 36; // Yellow
   } else {
-    hue = 8; //Red
+    hue = 15; //Red
   }
+}
+
+/**
+ * Sets the velocity and rotation factor based on the current wind speed 
+ * (miles per hour)
+ */
+function setVelocityAndRotationFactor() {
+  if (wind_mph < 2) {
+    velocityLimit = 0.15;
+    rotationFactorLimit = 0.15;
+  } else if (wind_mph < 6) {
+    velocityLimit = 0.5;
+    rotationFactorLimit = 0.5;
+  } else if (wind_mph < 10) {
+    velocityLimit = 1;
+    rotationFactorLimit = 1;
+  } else if (wind_mph < 15) {
+    velocityLimit = 1.5;
+    rotationFactorLimit = 1.5;
+  } else if (wind_mph < 80) {
+    velocityLimit = wind_mph/10;
+    rotationFactorLimit = wind_mph/10;
+  } else { // Wind speed is above 80mph
+    velocityLimit = 8;
+    rotationFactorLimit = 8;
+  } 
 }
 
 /**
@@ -243,14 +286,17 @@ function createTriangles() {
   var xOff = 0;
   var yOff = 0;
   
-  for (var i=0; i<100; i++) {
+  for (var i=0; i<150; i++) {
     // Find the first point's 2D position and velocity.
     var pos = 
           createVector(noise(xOff + 2*i) * width, noise(yOff - 2*i) * height);
-    var velocity = createVector(random(-2, 2), random(-2, 2));
-    
-    var rotationFactor = random(-5, 5);
-    
+
+    velocity = createVector(
+      random(0-velocityLimit, velocityLimit), 
+      random(0-velocityLimit, velocityLimit)
+    );
+    rotationFactor = random(0-rotationFactorLimit, rotationFactorLimit);
+
     // Create the triangle object.
     triangles[triangles.length] = new Triangle(pos, velocity, rotationFactor);
     
