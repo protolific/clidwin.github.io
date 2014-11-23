@@ -16,7 +16,9 @@
       <div id="navigation-wrapper">
       <div id="navbar">
         <div class="navbar-wrapper">
-        <div id="navbar-title">WEB TUTORIALS</div>
+        <a href="../index.html" id="navbar-title">
+            WEB TUTORIALS
+        </a>
         <ul id="navbar-menu">
             <li class="navbar-menu-item">
                 <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/about.html">About</a>
@@ -38,31 +40,31 @@
                 <li class="module-menu-item">Overview</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="basic-functions.html">
                 <li class="module-menu-item">Basic Functions</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="matricies.html">
                 <li class="module-menu-item">Matricies</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="origins.html">
                 <li class="module-menu-item">Origins</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="perspective.html">
                 <li id="module-section-active" class="module-menu-item">Perspective</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="references.html">
                 <li class="module-menu-item">Module References</li>
@@ -71,11 +73,6 @@
       </div>
     </div>
       </div>
-      <div id="sidebar-quicklinks">
-        <a class="quicklink" href="#perspective">perspective</a>
-        <a class="quicklink" href="#transforms-3d">Transforms in 3D</a>
-        <a class="quicklink" href="#transform-style">transform-style</a>
-    </div>
     <div id="module">
     	<h1>CSS Transforms: Perspectives</h1>
     	<p>By default, DOM elements are drawn on an xy-plane, which creates a flat panel on which objects are created and rendered. A third dimension does exist on web pages, but it is set to have a value of zero by default, thus creating the illusion of a two dimensional surface.</p>
@@ -87,7 +84,7 @@
         <p data-height="268" data-theme-id="9039" data-slug-hash="AsBvy" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/AsBvy/'>Perspective</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
         <script async src="//codepen.io/assets/embed/ei.js"></script>
       </div>
-        <div class="challenge-block" style="right: 0; top: 350px;">
+        <div class="challenge-block">
             <h2>Challenge</h2>
             By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can change the perspective to be a negative 400px distance from the body element at an origin of the bottom right corner. Then rotate the cyan square 60 degrees in all dimensions and translate the magenta square 200px in the z dimension. After this has been completed, flatten the image using the transform-style.  
         </div>
@@ -95,16 +92,21 @@
       <h2 id="perspective">perspective</h2>
       <p>We use the <span class="keyword">perspective</span> tag to set a depth or distance a focal point is perceived to be from the page. It is a similar concept to a camera in a 3D modelling program because all child elements are created based on the perspective's origin. To reiterate, this tag is applied to the parent element of the element being transformed, rather than the transformed element itself.</p>
 
-      <p>As an example, if we wanted to set a perspctive to 200px and then had a child element with a rotate transform applied, the perspective might view the rotated element differently than its originally rendering based on the perspective's view of the element. We could create this perspective through the CSS <span class="keyword">perspective: 200px;</span>.
-
-      <p>By default, the perspective's origin, or point of reference, is set to be the center of the element. We can change this using the <span class="keyword">perspective-origin</span> property, which functions the same way transform's origin property does.</p>
-        
-        <div class="example-canvas" style="perspective: 200px; perspective-origin: left;">
-            <div class="square left-align"></div>
-            <div class="square right-align underlay"></div>
-            <div class="square right-align" style="transform: rotateY(60deg);"></div>
+      <p>As an example, if we set a perspctive to 200px and had child elements all rotated in the y-direction by 30 degrees, the perspective might view the rotated element differently than its originally rendering based on the perspective's view of the element. We could create this perspective through the CSS <span class="keyword">perspective: 200px;</span>.
+        <div class="example-canvas-large" style="perspective: 200px;">
+            <div class="square center-align underlay rotate-square"></div>
+            <div class="square top-align rotate-square" style="left: calc(50% - 100px);"></div>
+            <div class="square top-align rotate-square" style="left: calc(50% - 25px);"></div>
+            <div class="square top-align rotate-square" style="left: calc(50% + 50px);"></div>
+            <div class="square center-align rotate-square" style="left: calc(50% - 100px);"></div>
+            <div class="square center-align rotate-square" style="left: calc(50% + 50px);"></div>
+            <div class="square bottom-align rotate-square" style="left: calc(50% - 100px);"></div>
+            <div class="square bottom-align rotate-square" style="left: calc(50% - 25px);"></div>
+            <div class="square bottom-align rotate-square" style="left: calc(50% + 50px);"></div>
         </div>
 
+    <p>By default, the perspective's origin, or point of reference, is set to be the center of the element. We can change this using the <span class="keyword">perspective-origin</span> property, which functions the same way transform's origin property does.</p>
+        
       <h2 id="transforms-3d">Transforms in 3D</h2>
       <p>In the case of the matrix, rotate, scale, and translate functions (in other words, everything but skew), it's possible to add the characters "3d" to the end of these function and have a new transform function that adds a third dimension effect. For scale and translate, these functions now take 3 arguments instead of two: an x value, a y value, and a z value. An example might be translating by 20px in all three dimensions, which would be the CSS <span class="keyword">transform: translate3d(20px, 20px, 20px);</span>.</p>
       <p>To rotate in 3d rotate, we use four arguments to the new function. The first three arguments are for x-position, y-position, and z-position for the rotation point, and the forth argument is the angle of rotation for the shape. As an example, if we wanted to apply a 30 degree rotation to a point 5 pixels in the x, y, and z directions, we could do so through the CSS <span class="keyword">transform: rotate3d(5px, 5px, 5px, 30deg);</span></p>
@@ -122,14 +124,38 @@
 </div>
       <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">
-        <a href="origins.html" id="previous-button" class="button-link">
-          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Origins 
-        </a>
-
-         <a href="references.html" id="next-button" class="button-link">
-          <strong>Next Section:</strong> References <span class="entypo-right-thin"></span>
-        </a>
+         <div id="bottom-navigation">
+          <a class="module-section-block-link" href="index.html">
+              <div class="bottom-nav-circle" title="Overview Section">
+              </div>
+            </a>
+          <a class="module-section-block-link" href="basic-functions.html">
+              <div class="bottom-nav-circle" title="Functions Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="matricies.html">
+              <div class="bottom-nav-circle" title="Matricies Section">
+              </div>
+          <a class="module-section-block-link" href="origins.html">
+              <div class="bottom-nav-circle" title="Origins Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="perspective.html">
+              <div id="bottom-active-circle" class="bottom-nav-circle" title="Perspective Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="references.html">
+              <div class="bottom-nav-circle" title="References Section">
+              </div>
+          </a>
+        </div>
       </div>
+    </div>
+    <div id="footer-wrapper">
+        <div id="footer">
+            Web Tutorials
+            <div style="float: right;">Site by Christina Lidwin</div>
+        </div>
     </div>
   </body>
 </html>

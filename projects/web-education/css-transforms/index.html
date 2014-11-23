@@ -16,7 +16,9 @@
     <div id="navigation-wrapper">
     <div id="navbar">
         <div class="navbar-wrapper">
-        <div id="navbar-title">WEB TUTORIALS</div>
+        <a href="../index.html" id="navbar-title">
+            WEB TUTORIALS
+        </a>
         <ul id="navbar-menu">
             <li class="navbar-menu-item">
                 <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/about.html">About</a>
@@ -38,31 +40,31 @@
                 <li id="module-section-active" class="module-menu-item">Overview</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="basic-functions.html">
                 <li class="module-menu-item">Basic Functions</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="matricies.html">
                 <li class="module-menu-item">Matricies</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="origins.html">
                 <li class="module-menu-item">Origins</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="perspective.html">
                 <li class="module-menu-item">Perspective</li>
             </a>
             <li class="module-menu-item">
-                <span class="entypo-right-open-mini"></span>
+                <span class="entypo-dot"></span>
             </li>
             <a href="references.html">
                 <li class="module-menu-item">Module References</li>
@@ -78,17 +80,28 @@
                 <div id="transforms-ball"></div>
             </div>
         </div>
-      <p>This section builds on the principles of basic CSS and delves into the concept of transforms, a CSS3 property that allows web designers and developers to perform alterations such as translations, rotations, skews, and perspectives. Transforms not only provide these capabilities to static content, but also can be used to provide visual interest in CSS3 animations (which will be further discussed in the next module).</p>
-        <p>The blue square demonstrates some of the transforms that will be discussed in this module. By hovering on this square, an animation will play showing the transforms of rotate, scale, and translate are applied on a two second interval.</p>
+      <p>This section builds on the principles of basic CSS and delves into the concept of transforms. By using this property, web designers and developers are able to perform alterations such as translations, rotations, skews, and perspectives on web objects. These effects not only apply to static content, but also provide visual interest in <a href="../css-animations/index.html">CSS3 animations</a>.</p>
+        <p>The blue square above demonstrates some of the transform options that will be discussed in this module. When hovering on this square, an animation plays showing the transforms of rotate, scale, and translate applied on a two second interval.</p>
         <div class="spacer"></div>
     	<h2>Overview</h2>
-      <p>A <span class="keyword">transform</span> in CSS is a property that changes the way an element interacts with the grid structure of the DOM (Document Object Model, or element hierarchy). The property affects the element similar to the Marquee tools in Photoshop, manipulating the element as a whole instead of each of its contents individually.</p>
+      <p>A <span class="keyword">transform</span> in CSS is a property that changes the way an element interacts with the grid structure of the DOM (Document Object Model, or element hierarchy). The property affects the element similar to how the Free Transform tool affects a group in Photoshop, manipulating the element/group as a whole instead of each of its contents/layers individually.</p>
 
-      <p>The values for the transform property are the functions matrix, rotate, scale, skew, and translate. There are also sub-properties of transform that allow us to specify the origin, style, and perspective of the transform.</p>
+        <p>The values for the transform property are the functions <a href="matricies.html">matrix</a>, <a href="basic-functions.html#rotate">rotate</a>, <a href="basic-functions.html#scale">scale</a>, <a href="basic-functions.html#skew">skew</a>, and <a href="basic-functions.html#translate">translate</a> There are also sub-properties of transform that allow us to specify the <a href="origins.html">origin</a>, <a href="perspective.html#transform-style">style</a>, and <a href="perspective.html">perspective</a> of the transform.</p>
 
       <h2>Module Topics</h2>
       <div id="module-topics">
-          <a class="module-block-link" href="basic-functions.html">
+          <a class="module-section-block-link">
+              <div class="module-block next-section-block">
+                  <div class="module-block-title">
+                    Overview
+                </div>
+                  <div class="module-block-desc">
+                    Description of the content in this section.
+                </div>
+              </div>
+            </a>
+          <div class="module-block-separator"></div>
+          <a class="module-section-block-link" href="basic-functions.html">
               <div class="module-block">
                 <div class="module-block-title">
                     Functions
@@ -98,7 +111,8 @@
                 </div>
               </div>
           </a>
-          <a class="module-block-link" href="matricies.html">
+          <div class="module-block-separator"></div>
+          <a class="module-section-block-link" href="matricies.html">
           <div class="module-block">
             <div class="module-block-title">
                 Matricies
@@ -107,7 +121,8 @@
                 The most flexible of transform functions.
             </div>
           </div>
-          <a class="module-block-link" href="origins.html">
+          <div class="module-block-separator"></div>
+          <a class="module-section-block-link" href="origins.html">
               <div class="module-block">
                 <div class="module-block-title">
                     Origins
@@ -117,7 +132,8 @@
                 </div>
               </div>
           </a>
-          <a class="module-block-link" href="perspective.html">
+          <div class="module-block-separator"></div>
+          <a class="module-section-block-link" href="perspective.html">
               <div class="module-block">
                 <div class="module-block-title">
                     Perspective
@@ -127,7 +143,8 @@
                 </div>
               </div>
           </a>
-          <a class="module-block-link" href="references.html">
+          <div class="module-block-separator"></div>
+          <a class="module-section-block-link" href="references.html">
               <div class="module-block">
                   <div class="module-block-title">
                     References
@@ -137,28 +154,43 @@
                 </div>
               </div>
           </a>
-          <a class="module-block-link" href="basic-functions.html">
-              <div class="module-block next-section-block">
-                  <div class="module-block-title">
-                    Next Section
-                </div>
-                  <div class="module-block-desc">
-                    Starting with transform functions.
-                </div>
-              </div>
-            </a>
       </div>
       </div>
     </div>
       <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">
-           <a href="index.html" id="previous-button" class="button-link">
-          <span class="entypo-left-thin"></span>  <strong>Return To:</strong> Main Index 
-        </a>
-         <a href="basic-functions.html" id="next-button" class="button-link">
-          <strong>First Section:</strong> Functions <span class="entypo-right-thin"></span>
-        </a>
+         <div id="bottom-navigation">
+          <a class="module-section-block-link" href="index.html">
+              <div id="bottom-active-circle" class="bottom-nav-circle" title="Overview Section">
+              </div>
+            </a>
+          <a class="module-section-block-link" href="basic-functions.html">
+              <div class="bottom-nav-circle" title="Functions Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="matricies.html">
+              <div class="bottom-nav-circle" title="Matricies Section">
+              </div>
+          <a class="module-section-block-link" href="origins.html">
+              <div class="bottom-nav-circle" title="Origins Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="perspective.html">
+              <div class="bottom-nav-circle" title="Perspective Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="references.html">
+              <div class="bottom-nav-circle" title="References Section">
+              </div>
+          </a>
+        </div>
       </div>
+    </div>
+    <div id="footer-wrapper">
+        <div id="footer">
+            Web Tutorials
+            <div style="float: right;">Site by Christina Lidwin</div>
+        </div>
     </div>
   </body>
 </html>

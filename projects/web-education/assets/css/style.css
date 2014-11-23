@@ -118,13 +118,22 @@ li {
     text-decoration: none;
 }
 
+#title {
+    font-size: 3em;
+    font-weight: 600;
+    line-height: 3.0em;
+    text-align: center;
+}
+
 #navbar-title {
     position: absolute;
     top: 25px;
     left: 0;
     
+    color: #fff;
     font-size: 2em;
     font-weight: 600;
+    text-decoration: none;
 }
 
 #module-navbar {
@@ -164,9 +173,31 @@ li {
     font-weight: 400;
 }
 
+#bottom-navigation {
+    margin: 10px auto;
+    width: 200px;
+}
+
+#bottom-active-circle {
+    background-color: #2386C8;
+}
+
+.bottom-nav-circle {
+    background-color: #999;
+    border-radius: 15px;
+    display: inline-block;
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+}
+
+.bottom-nav-circle:hover {
+    background-color: #2079B4;
+}
+
 /* Custom Class Selectors */
 .annotated-reference {
-	margin: 10px 15px;
+	margin: 10px 0;
 	text-align: justify;
 }
 
@@ -212,17 +243,67 @@ li {
     clear: both;
 }
 
+#footer {
+    margin: 0 auto;
+    max-width: 905px;
+}
+
+#footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    
+    background-color: #555;
+    clear: both;
+    color: #ccc;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+}
+
 /* Ids */
 #bottom-nav-wrapper {
     background-color: #ccc;
     position: fixed;
-    bottom: 0;
+    bottom: 30px;
 	clear: both;
     width: 100%;
 }
+
 #bottom-nav {
-    max-width: 960px;
+    max-width: 905px;
     margin: 0 auto;
+}
+
+.module-block-square {
+    background-color: #fff;
+    border-radius: 3px;
+    height: 50px;
+    margin: 10px auto;
+    width: 50px;
+}
+
+#module-transform-square {
+    border-radius: 25px;
+}
+
+.module-block-link:hover #module-transform-square{
+    transform: skewX(-12deg);
+}
+
+.module-block-link:hover #module-animation-square{
+    -moz-animation: ANIMATE_SQUARE 1.5s ease;
+    -o-animation: ANIMATE_SQUARE 1.5s 2 ease;
+    -webkit-animation: ANIMATE_SQUARE 1.5s ease;
+    animation: ANIMATE_SQUARE 1.5s ease;
+}
+
+@-webkit-keyframes ANIMATE_SQUARE {
+    0% {
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
 
 #module {
@@ -251,7 +332,7 @@ li {
 
 #module-topics {
 	clear: both;
-	margin-bottom: 20px;
+	margin: 20px 0;
 }
 
 #next-button {
@@ -279,7 +360,10 @@ li {
 }
 
 #transforms-ball:hover {
-    -webkit-animation: TRANSFORM 2s alternate 2 ease;
+    -moz-animation: TRANSFORM 1.5s alternate 2 ease;
+    -o-animation: TRANSFORM 1.5s alternate 2 ease;
+    -webkit-animation: TRANSFORM 1.5s alternate 2 ease;
+    animation: TRANSFORM 1.5s alternate 2 ease;
 }
 
 @-webkit-keyframes TRANSFORM {
@@ -297,12 +381,23 @@ li {
 
 .module-block {
     background-color: #C7DDEA;
-    border-radius: 5px;
+    border-radius: 75px;
     display: inline-block;
     height: 131px;
-    margin-right: 19px;
     position: relative;
     width: 128px;
+}
+
+.next-section-link {
+    border: 3px solid #2386C8;
+}
+
+.module-block-separator {
+    background-color: #bbb;
+    display: inline-block;
+    height: 20px;
+    margin: 20px 0;
+    width: 20px;
 }
 
 .module-block:hover {
@@ -310,7 +405,7 @@ li {
     background-color: #6CADD7;
 }
 
-.module-block-link {
+.module-section-block-link {
     color: inherit;
     text-decoration: none;
 }
@@ -331,7 +426,7 @@ li {
     width: calc(100%-20px);
 }
 
-.next-section-block {
+.next-section-block, .next-section-block:hover {
     background-color: #2386C8;
     color: #eee;
 }
@@ -371,14 +466,61 @@ li {
 }
 
 .challenge-block {
-    position: absolute;
-    background-color: #e2a3a3;
+    background-color: #cceac7;
     border-radius: 5px;
     font-size: 0.8em;
-    max-width: 150px;
+    margin: 15px 30px;
     padding: 15px;
 }
 
 .challenge-block h2 {
     margin-top: 0;
+}
+
+.module-block-link-inactive {
+    background-color: #ccc;
+    color: #666;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px 5px;
+    min-width: 190px;
+    padding: 10px;
+    width: 20%;
+}
+
+.module-block-link-inactive:hover {
+    text-decoration: none;
+}
+
+.module-topic-link {
+    display: inline-block;
+    background-color: #2386C8;
+    height: 10px;
+    margin-top: 50px;
+    width: 5px;
+}
+
+.module-block-link {
+    background-color: #2386C8;
+    color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px 5px;
+    min-width: 190px;
+    padding: 10px;
+    width: 20%;
+}
+
+.module-block-link:hover {
+    background-color: #2079B4;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.module-title {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.5em;
+    text-align: center;
 }

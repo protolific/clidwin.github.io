@@ -4,6 +4,14 @@
     width: 100%;
 }
 
+.example-canvas-large {
+    height: 200px;
+    margin: 50px 0;
+    position: relative;
+    width: 100%;
+    perspective-origin: center;
+}
+
 .square {
     background-color: #2386C8;
     border-radius: 3px;
@@ -25,4 +33,24 @@
     position: absolute;
     top: 50px;
     right: 25%;
+}
+
+.center-align {
+    position: absolute;
+    top: 75px;
+    right: calc(50% - 25px);
+}
+
+.top-align {
+    position: absolute;
+    top: 0;
+}
+
+.bottom-align {
+    position: absolute;
+    top: 150px;
+}
+
+.rotate-square {
+    transform: rotateY(45deg);
 }

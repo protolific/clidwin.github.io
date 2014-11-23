@@ -13,6 +13,66 @@
   </head>
 
   <body>
+      <div id="navigation-wrapper">
+      <div id="navbar">
+        <div class="navbar-wrapper">
+        <a href="../index.html" id="navbar-title">
+            WEB TUTORIALS
+        </a>
+        <ul id="navbar-menu">
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/about.html">About</a>
+            </li>
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/css-transforms/index.html">Modules</a>
+            </li>
+            <li class="navbar-menu-item">
+                <a class="navbar-menu-item-text" href="/clidwin.com/projects/web-education/resources.html">Resources</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    <div id="module-navbar">
+      <div id="module-navbar-wrapper" class="navbar-wrapper">
+        <div id="module-navbar-section-title">CSS3 ANIMATIONS:</div>
+        <ul id="module-menu">
+            <a href="index.html">
+                <li class="module-menu-item">Overview</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-dot"></span>
+            </li>
+            <a href="prefixes.html">
+                <li class="module-menu-item">Animation Prefixes</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-dot"></span>
+            </li>
+            <a href="keyframes.html">
+                <li class="module-menu-item">Keyframes</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-dot"></span>
+            </li>
+            <a href="subproperties.html">
+                <li id="module-section-active" class="module-menu-item">Subproperties</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-dot"></span>
+            </li>
+            <a href="shorthand.html">
+                <li class="module-menu-item">Shorthand</li>
+            </a>
+            <li class="module-menu-item">
+                <span class="entypo-dot"></span>
+            </li>
+            <a href="references.html">
+                <li class="module-menu-item">Module References</li>
+            </a>
+        </ul>
+      </div>
+    </div>
+      </div>
     <div id="module">
     	<h1>CSS Animations: Animation Subproperties</h1>
     	<p>After keyframes are created, the next step is to call the keyframes and give parameters to the animation so that it can become an active element in the webpage. These parameters include timing, repetition, and directional elements, are set for the animation through animation sub-properties.</p>
@@ -24,7 +84,9 @@
         <p data-height="268" data-theme-id="9039" data-slug-hash="gGBDk" data-default-tab="result" data-user="clidwin" class='codepen'>See the Pen <a href='http://codepen.io/clidwin/pen/gGBDk/'>Animation Subproperties</a> by Christina (<a href='http://codepen.io/clidwin'>@clidwin</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
         <script async src="//codepen.io/assets/embed/ei.js"></script>
       </div>
-      <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can make the animation run infinitely on hover and last 4 seconds per cycle.</p>
+        <div class="challenge-block">
+            <h2>Challenge</h2>
+            <p>By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can make the animation run infinitely on hover and last 4 seconds per cycle.</p></div>
 
       <h2><span class="keyword">animation-name</span></h2>
       <p>The subproperty that links an animation to its keyframe selector is <span class="keyword">animation-name</span>. Its value is the name given alongside the keyframes selector.</p>
@@ -46,16 +108,42 @@
       <h2><span class="keyword">animation-delay</span></h2>
       <p>To put a pause before the start of an animation, use the <span class="keyword">animation-delay</span> subproperty. Just like duration, the value needs to be a positive integer followed by the specification 's' for second and 'ms' for millisecond.</p>
       <p>As an example, if an animation should start after 3 seconds, this could be done through <span class="keyword">animation-delay: 3s;</span>.</p>
-
-      <div id="bottom-nav" >
-        <a href="keyframes.html" id="previous-button" class="button">
-          <span class="entypo-left-thin"></span>  <strong>Previous Section:</strong> Keyframes
-        </a>
-
-         <a href="shorthand.html" id="next-button" class="button">
-          <strong>Next Section:</strong> Animation Shorthand <span class="entypo-right-thin"></span>
-        </a>
+</div>
+      <div id="bottom-nav-wrapper" >
+       <div id="bottom-nav">
+         <div id="bottom-navigation">
+          <a class="module-section-block-link" href="index.html">
+              <div class="bottom-nav-circle" title="Overview Section">
+              </div>
+            </a>
+          <a class="module-section-block-link" href="prefixes.html">
+              <div class="bottom-nav-circle" title="Functions Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="keyframes.html">
+              <div class="bottom-nav-circle" title="Matricies Section">
+              </div>
+          <a class="module-section-block-link" href="subproperties.html">
+              <div id="bottom-active-circle" class="bottom-nav-circle" title="Origins Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="shorthand.html">
+              <div class="bottom-nav-circle" title="Perspective Section">
+              </div>
+          </a>
+          <a class="module-section-block-link" href="references.html">
+              <div class="bottom-nav-circle" title="References Section">
+              </div>
+          </a>
+        </div>
       </div>
     </div>
+    <div id="footer-wrapper">
+        <div id="footer">
+            Web Tutorials
+            <div style="float: right;">Site by Christina Lidwin</div>
+        </div>
+    </div>
+    
   </body>
 </html>
