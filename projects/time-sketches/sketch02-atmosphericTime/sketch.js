@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: November 19, 2014
+ * Modified On: December 03, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed/direction, color relates to the temperature, etc.
@@ -18,8 +18,6 @@
  * 
  * Interactivity: None specified (yet). Maybe allow the capability to enter in
  *    a custom city/state.
- * 
- * TODOS: Connect motion to weather data, auto-update visualization every 15min
  */
 
 // Visual Elements
@@ -36,8 +34,11 @@ var api_key = 'eac387d283139277';
 var temp_f;
 var wind_mph;
 
+var bgImg;
+
 /**
  * Custom triangle class.
+ * 
  * @param position The first point in the triangle.
  * @param velocity The velocity of the triangle.
  * @param velocity The amount of rotation to be applied each frame.
@@ -60,12 +61,12 @@ var Triangle = function(position, velocity, rotationFactor) {
 function setup() {
   // Canvas and overall image settings.
   angleMode(DEGREES);
-  createCanvas(700, 700);
-  frameRate(30);
-  textFont('Roboto');
+  createCanvas(windowWidth, windowHeight);
+  frameRate(25);
+  textFont('Montserrat');
   
   // Create color settings.
-  colorMode(HSB, 360, 100, 100);
+  colorMode(HSB, 360, 100, 100, 100);
   background(350, 100, 90);
   
   // Initialize Visual Elements
@@ -76,26 +77,27 @@ function setup() {
 
   // Capture Weather Data.
   parseWeatherData();
+  bgImg = createGraphics(windowWidth, windowHeight);
+  bgImg.colorMode(HSB, 360, 100, 100, 100);
 }
 
 /**
  * Operations that occur once per frame rendering
  */
 function draw() {
+  // Fetch new weather data every 15 minute mark to keep the visuals current.
+  if (minute() % 15 === 0 && second() === 0 && millis() % 1000 === 0) {
+    parseWeatherData();
+  }
+  
   // Draw gradient background
   background(hue, 100, 90);
-  drawRadialGradient(width/2, height/2);
-  
-  /*fill(0);
-  textSize(28);
-  text(wind_mph, 0, 20);
-  text(wind_degrees, 0, 80);*/
-  
-  noStroke();
+  image(bgImg, width/2 - bgImg.width/2, height/2 - bgImg.height/2);
   
   // Draw all of the triangles on the canvas
+  noStroke();
   for (var i=0; triangles && i<triangles.length; i++) {
-    fill(hue, triangles[i].saturation, 90);
+    fill(hue, triangles[i].saturation, 90, 80);
     
     push();
     // Apply transforms.
@@ -113,16 +115,57 @@ function draw() {
   }
   
   // Draw credits
-  colorMode(RGB);
-  tint(255, 125);
-  image(
-    weatherLogo, 
-    width - weatherLogo.width, // image x position (top-left corner)
-    height - weatherLogo.height, // image y position (top-left corner)
-    weatherLogo.width, // image width
-    weatherLogo.height // image height
-    );
-  colorMode(HSB);
+  drawCredits();
+}
+
+/*
+ * Operation that occurs when the display window is resized.
+ * Based on: http://p5js.org/reference/#/p5/windowResized
+ */
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  
+  bgImg = createGraphics(windowWidth, windowHeight);
+  bgImg.colorMode(HSB, 360, 100, 100, 100);
+  drawRadialGradient();
+  
+  createTriangles();
+}
+
+/**
+ * Draw information about the graphic in the bottom right corner.
+ */
+function drawCredits() {
+  push();
+    translate(width - 20 - weatherLogo.width, height - 80 - weatherLogo.height);
+    
+    colorMode(RGB);
+    tint(255, 125);
+    image(
+      weatherLogo, 
+      20, // image x position (top-left corner)
+      0, // image y position (top-left corner)
+      weatherLogo.width, // image width
+      weatherLogo.height // image height
+      );
+    colorMode(HSB);
+    
+    fill(100, 0, 100, 50);
+    textAlign(RIGHT);
+    textSize(12);
+    text(
+      'The current weather is ' + temp_f + '\u00B0F', 
+      weatherLogo.width, 
+      weatherLogo.height + 20);
+    text(
+      'with a wind speed of ' + wind_mph + ' mph', 
+      weatherLogo.width, 
+      weatherLogo.height + 40);
+    text(
+      'in ' + weather_city + ', ' + weather_state, 
+      weatherLogo.width, 
+      weatherLogo.height + 60);
+  pop();
 }
 
 /**
@@ -130,38 +173,20 @@ function draw() {
  * Based on: https://www.processing.org/examples/radialgradient.html
  */
 function drawRadialGradient() {
-  noStroke();
-  var dim = width;
+  var dim = windowHeight;
   var radius = dim;
   var s = 100;
-  var x = width/2;
-  var y = height/2;
-  for (var r = radius; r > 0; r-=5) {
-    fill(hue, s, 90);
-    ellipse(x, y, r, r);
-    s-=0.75;
-  }
-}
-
-/**
- * Draws a linear gradient.
- * Based on: https://processing.org/examples/lineargradient.html
- */
-function drawLinearGradient() {
-  var x = 0;
-  var y = 0;
-  var w = width;
-  var h = height;
+  var x = windowWidth;
+  var y = windowHeight;
   
-  var c1 = color(hue, 100, 90);
-  var c2 = color(hue, 100, 90);
-  noFill();
-  for (var i = y; i <= y+h; i++) {
-    //var inter = map(i, y, y+h, 0, 0.01);
-    //var c = lerpColor(c1, c2, 1);
-    s = i*0.15;
-    stroke(hue, s, 90);
-    line(x, i, x+w, i);
+  bgImg.noStroke();
+  for (var r = radius; r > 0; r-=3) {
+    bgImg.stroke(hue, s, 90);
+    bgImg.strokeWeight(r);
+    bgImg.point(x, y);
+    if (s > 5) {
+      s-=0.15;
+    }
   }
 }
 
@@ -181,8 +206,8 @@ function moveTriangle(triangle) {
     }
   
   // Handle the case when the Y value has gone out of bounds.
-  if (triangle.point1.y > width || triangle.point1.y <= 0 ||
-      triangle.point1.y >= width || triangle.point1.y <= 0 ||
+  if (triangle.point1.y > height || triangle.point1.y <= 0 ||
+      triangle.point1.y >= height || triangle.point1.y <= 0 ||
       triangle.point1.y + triangle.point2.y >= width || 
       triangle.point1.y + triangle.point2.y <= 0 ||
       triangle.point1.y + triangle.point3.y >= width || 
@@ -223,6 +248,7 @@ function parseWeatherData() {
       setHue();
       setVelocityAndRotationFactor();
       createTriangles();
+      drawRadialGradient();
     },
     error: function(parsed_json) {
       alert(parsed_json);
@@ -286,7 +312,12 @@ function createTriangles() {
   var xOff = 0;
   var yOff = 0;
   
-  for (var i=0; i<150; i++) {
+  var numTriangles = 200;
+  if (windowWidth > 800) {
+    numTriangles = windowWidth / 4;
+  }
+  
+  for (var i=0; i<numTriangles; i++) {
     // Find the first point's 2D position and velocity.
     var pos = 
           createVector(noise(xOff + 2*i) * width, noise(yOff - 2*i) * height);
@@ -295,7 +326,7 @@ function createTriangles() {
       random(0-velocityLimit, velocityLimit), 
       random(0-velocityLimit, velocityLimit)
     );
-    rotationFactor = random(0-rotationFactorLimit, rotationFactorLimit);
+    rotationFactor = random(0 - rotationFactorLimit, rotationFactorLimit);
 
     // Create the triangle object.
     triangles[triangles.length] = new Triangle(pos, velocity, rotationFactor);
