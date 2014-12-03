@@ -73,7 +73,7 @@ function setup() {
   hue = 180;
   rotationFactorLimit = 1;
   velocityLimit = 1;
-  weatherLogo = loadImage('wUndergroundLogo.png');
+  weatherLogo = loadImage('wundergroundLogo.png');
 
   // Capture Weather Data.
   parseWeatherData();
