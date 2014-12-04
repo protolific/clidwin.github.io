@@ -89,10 +89,10 @@
             By clicking the "Edit with CodePen" link, you are able to interact with this example. See if you can change the perspective to be a negative 400px distance from the body element at an origin of the bottom right corner. Then rotate the cyan square 60 degrees in all dimensions and translate the magenta square 200px in the z dimension. After this has been completed, flatten the image using the transform-style.  
         </div>
 
-      <h2 id="perspective">perspective</h2>
+      <h2 id="perspective">Perspective</h2>
       <p>We use the <span class="keyword">perspective</span> tag to set a depth or distance a focal point is perceived to be from the page. It is a similar concept to a camera in a 3D modelling program because all child elements are created based on the perspective's origin. To reiterate, this tag is applied to the parent element of the element being transformed, rather than the transformed element itself.</p>
 
-      <p>As an example, if we set a perspctive to 200px and had child elements all rotated in the y-direction by 30 degrees, the perspective might view the rotated element differently than its originally rendering based on the perspective's view of the element. We could create this perspective through the CSS <span class="keyword">perspective: 200px;</span>.
+      <p>As an example, if we set a perspctive to 200px and had child elements all rotated in the y-direction by 30 degrees, the perspective might view each element differently than its originally rendering based on the perspective's view of the element. We could create this perspective through the CSS <span class="keyword">perspective: 200px;</span>.
         <div class="example-canvas-large" style="perspective: 200px;">
             <div class="square center-align underlay rotate-square"></div>
             <div class="square top-align rotate-square" style="left: calc(50% - 100px);"></div>
@@ -118,7 +118,7 @@
             <div class="square right-align" style="transform: translate3d(20px, 20px, -20px);"></div>
         </div>
 
-      <h2 id="transform-style">transform-style</h2>
+      <h2 id="transform-style">Transform Style</h2>
       <p>The <span class="keyword">transform-style</span> property only has three possible values. <span class="keyword">preserve-3d</span> emphasizes that elements should be rendered in 3d space, whereas <span class="keyword">flat</span> overrides 3d properties and renders elements as if they all existed on the same xy plane. <span class="keyword">inherit</span> is a keyword we have seen before in other properties, and says to use the style applied in the closest parent element.</p>
       <p>CSS-Tricks has an excellent <a href="http://css-tricks.com/almanac/properties/t/transform-style/" target="_blank">example showcasing how this property affects element rendering</a>.</p>
 </div>

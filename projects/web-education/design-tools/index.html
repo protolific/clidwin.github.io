@@ -3,9 +3,9 @@
   
   <head>
     <!-- Meta Information !-->
-    <title>Module 3 - CSS Animations</title>
+    <title>Module 1 - Design Tools</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="Overview of CSS Animations and how to use them in website development.">
+    <meta name="description" content="Overview of CSS Transforms and how to use them in website development.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Stylesheets !-->
@@ -14,7 +14,7 @@
 
   <body>
     <div id="navigation-wrapper">
-      <div id="navbar">
+    <div id="navbar">
         <div class="navbar-wrapper">
         <a href="../index.html" id="navbar-title">
             WEB TUTORIALS
@@ -34,7 +34,7 @@
     </div>
     <div id="module-navbar">
       <div id="module-navbar-wrapper" class="navbar-wrapper">
-        <div id="module-navbar-section-title">CSS3 ANIMATIONS:</div>
+        <div id="module-navbar-section-title">Design Tools:</div>
         <ul id="module-menu">
             <a href="index.html">
                 <li id="module-section-active" class="module-menu-item">Overview</li>
@@ -42,26 +42,26 @@
             <li class="module-menu-item">
                 <span class="entypo-dot"></span>
             </li>
-            <a href="prefixes.html">
-                <li class="module-menu-item">Animation Prefixes</li>
+            <a href="basic-functions.html">
+                <li class="module-menu-item">Sketch<sup>3</sup></li>
             </a>
             <li class="module-menu-item">
                 <span class="entypo-dot"></span>
             </li>
-            <a href="keyframes.html">
-                <li class="module-menu-item">Keyframes</li>
+            <a href="matricies.html">
+                <li class="module-menu-item">Muse</li>
             </a>
             <li class="module-menu-item">
                 <span class="entypo-dot"></span>
             </li>
-            <a href="subproperties.html">
-                <li class="module-menu-item">Subproperties</li>
+            <a href="origins.html">
+                <li class="module-menu-item">Edge Reflow</li>
             </a>
             <li class="module-menu-item">
                 <span class="entypo-dot"></span>
             </li>
-            <a href="shorthand.html">
-                <li class="module-menu-item">Shorthand</li>
+            <a href="perspective.html">
+                <li class="module-menu-item">Brackets</li>
             </a>
             <li class="module-menu-item">
                 <span class="entypo-dot"></span>
@@ -72,21 +72,16 @@
         </ul>
       </div>
     </div>
-      </div>
-    <div id="module">
-    	<h1>Module 3: CSS3 Animations</h1>
-        <div id="module-sample">
-            <div id="animation-module-sample-wrapper">
-                <div id="animations-ball" class="ball"></div>
-            </div>
         </div>
-    	<p>A static website provides content that is easy to stylize and does not rely on timing (other than page loading time) to deliver information. This can be useful to translate website content from image to text based versions of the site and improve consistency across browsers.</p>
-      <p>Applying motion to a website, though, creates opportunities for different forms of communication and an eye-catching experience for users. Menus that slide down on a hover or notifications that bounce to draw a user's attention are just two examples of possible animations that create both a visual for the eye to follow as content is exposed and subtle alert about a change in the interface or system. Javascript was previously needed to provide animations like these, but with the introduction of CSS3, it is possible to create some animations by using new CSS keywords such as <span class="keyword">keyframe</span> and <span class="keyword">animation</span>.</p>
-
+    <div id="module">
+    	<h1>Module 1: Design Tools</h1>
+        <div id="module-1-sample">
+        </div>
+        <p>As technology advances and people populate the internet with a variety of content, a common question for entrepreneurs and aspiring content creators is "how do people create media for digital platforms?" But before we can tackle this question, we first need to figure out what type of media is being created. In some cases, this media is a website, while for others it's an application, and still other cases want either both forms or something completely different.</p>
+      <p>Learning about interface development tools provides insight to how people in both the industry and academia are developing content for the web. In this section, we explore a few of these tools, each of which offers a unique set of features and properties meant to assist in different stages of the development processes, ranging from prototyping to implmenetation.</p>
+        <div class="spacer"></div>
     	<h2>Overview</h2>
-      <p>CSS animations can be created to either run infinitely when the page is loaded, conditionally based on a hover or other action, or a set number of times as defined by the animation keyword. This variety allows for a mulititude of possible implementations and use cases, giving the designer more flexibility to use CSS3 (as opposed to javascript) for these tasks.</p>
-
-        <p>This module will discuss the various components involved in creating a CSS3 animation as well as build on the concept of <a href="../css-transforms/index.html">transforms</a> from the last module.</p>
+      <p>With countless options for what type of media to create, it is no surprise that there are also dozens of content creation tools available, each with a unique set of (dis)advantages. For many, a "must have" in these tools is the ability to create prototypes and interfaces that can be easily tweaked and pushed to production. Based on these guidlines, this module explores and evaluates four programs: Bohemian Sketch<sup>3</sup>, Adobe Muse, Adobe Edge Reflow, and Adobe Brackets.</p>
 
       <h2>Module Topics</h2>
       <div id="module-topics">
@@ -101,45 +96,45 @@
               </div>
             </a>
           <div class="module-block-separator"></div>
-          <a class="module-section-block-link" href="prefixes.html">
+          <a class="module-section-block-link" href="basic-functions.html">
               <div class="module-block">
                 <div class="module-block-title">
-                    Prefixes
+                    Sketch<sup>3</sup>
                 </div>
                 <div class="module-block-desc">
-                    Flags needed to use animations in different browsers.
+                    Design tool focused on rapid prototyping.
                 </div>
               </div>
           </a>
           <div class="module-block-separator"></div>
-          <a class="module-section-block-link" href="keyframes.html">
+          <a class="module-section-block-link" href="matricies.html">
           <div class="module-block">
             <div class="module-block-title">
-                Keyframes
+                Muse
             </div>
             <div class="module-block-desc">
-                Dictate when CSS properties should be applied.
+                The most flexible of transform functions.
             </div>
           </div>
           <div class="module-block-separator"></div>
-          <a class="module-section-block-link" href="subproperties.html">
+          <a class="module-section-block-link" href="origins.html">
               <div class="module-block">
                 <div class="module-block-title">
-                    Subproperties
+                    Edge Reflow
                 </div>
                 <div class="module-block-desc">
-                    Specifying timing on the whole animation.
+                    The focal point or central location for the transform.
                 </div>
               </div>
           </a>
           <div class="module-block-separator"></div>
-          <a class="module-section-block-link" href="shorthand.html">
+          <a class="module-section-block-link" href="perspective.html">
               <div class="module-block">
                 <div class="module-block-title">
-                    Shorthand
+                    Brackets
                 </div>
                 <div class="module-block-desc">
-                    Apply keyframes to an element using one line of code.
+                    An open source text editor built for web design.
                 </div>
               </div>
           </a>
@@ -157,25 +152,25 @@
       </div>
       </div>
     </div>
-          <div id="bottom-nav-wrapper" >
+      <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">
          <div id="bottom-navigation">
           <a class="module-section-block-link" href="index.html">
               <div id="bottom-active-circle" class="bottom-nav-circle" title="Overview Section">
               </div>
             </a>
-          <a class="module-section-block-link" href="prefixes.html">
+          <a class="module-section-block-link" href="basic-functions.html">
               <div class="bottom-nav-circle" title="Functions Section">
               </div>
           </a>
-          <a class="module-section-block-link" href="keyframes.html">
+          <a class="module-section-block-link" href="matricies.html">
               <div class="bottom-nav-circle" title="Matricies Section">
               </div>
-          <a class="module-section-block-link" href="subproperties.html">
+          <a class="module-section-block-link" href="origins.html">
               <div class="bottom-nav-circle" title="Origins Section">
               </div>
           </a>
-          <a class="module-section-block-link" href="shorthand.html">
+          <a class="module-section-block-link" href="perspective.html">
               <div class="bottom-nav-circle" title="Perspective Section">
               </div>
           </a>

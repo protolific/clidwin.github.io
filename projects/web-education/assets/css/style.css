@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url('reset.css');
+@import url('animation-examples.css');
 @import url('transform-examples.css');
 
 /* General Selectors */
@@ -53,6 +54,7 @@ a:hover {
 sup {
 	font-size: 0.8em;
 	vertical-align: super;
+    line-height: inherit;
 }
 
 strong {
@@ -121,7 +123,15 @@ li {
 #title {
     font-size: 3em;
     font-weight: 600;
-    line-height: 3.0em;
+    line-height: 2.5em;
+    text-align: center;
+}
+
+#subtitle {
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -286,6 +296,18 @@ li {
     border-radius: 25px;
 }
 
+.module-design-wrapper {
+    display: block;
+    color: #fff;
+    font-size: 50px;
+    margin: 23px auto;
+    text-align: center;
+}
+
+.module-block-link:hover span {
+    color: #cceac7;
+}
+
 .module-block-link:hover #module-transform-square{
     transform: skewX(-12deg);
 }
@@ -324,6 +346,17 @@ li {
     width: 328px;
 }
 
+#module-1-sample {
+    background: url('../bracket-preview.png');
+    background-size: 328px 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: right;
+    height: 150px;
+    margin-left: 19px;
+    width: 328px;
+}
+
 #module-sample-wrapper {
     position: relative;
     height: 100%;
@@ -349,32 +382,6 @@ li {
 }
 
 /* Page-Specific */
-#transforms-ball {
-    background-color: #2386C8;
-    border-radius: 5px;
-    height: 50px;
-    position: absolute;
-    right: 0px;
-    top: 40px;
-    width: 50px;
-}
-
-#transforms-ball:hover {
-    -moz-animation: TRANSFORM 1.5s alternate 2 ease;
-    -o-animation: TRANSFORM 1.5s alternate 2 ease;
-    -webkit-animation: TRANSFORM 1.5s alternate 2 ease;
-    animation: TRANSFORM 1.5s alternate 2 ease;
-}
-
-@-webkit-keyframes TRANSFORM {
-    0% {
-        transform: translateX(0) rotateZ(0) scale(1);
-    }
-    100% {
-        transform: translateX(-250px) rotateZ(360deg) scale(2);
-    }
-}
-
 #module-topics {
     margin: 15px 0;
 }
@@ -465,16 +472,28 @@ li {
     width: 100%;
 }
 
-.challenge-block {
+.challenge-block, .aside-block {
     background-color: #cceac7;
     border-radius: 5px;
     font-size: 0.8em;
-    margin: 15px 30px;
+    margin: 30px 30px 15px 30px;
     padding: 15px;
 }
 
-.challenge-block h2 {
+.aside-block {
+    background-color: #ddd;
+}
+
+.challenge-block h2, .aside-block h2 {
     margin-top: 0;
+}
+
+.challenge-block .keyword {
+    background-color: #98cc8f;
+}
+
+.aside-block .keyword {
+    background-color: #bbb;
 }
 
 .module-block-link-inactive {
@@ -523,4 +542,18 @@ li {
     font-weight: 400;
     line-height: 1.5em;
     text-align: center;
+}
+
+.example-canvas {
+    height: 150px;
+    position: relative;
+    width: 100%;
+}
+
+.example-canvas-large {
+    height: 200px;
+    margin: 50px 0;
+    position: relative;
+    width: 100%;
+    perspective-origin: center;
 }

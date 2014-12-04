@@ -75,8 +75,14 @@
       </div>
     <div id="module">
     	<h1>CSS Animations: Keyframes</h1>
-    	<p>Keyframes dictate when changes occur and what changes are being made in an animation. If you have used animation applications such as Autodesk Maya, Adobe After Effects, or Maxon's Cinema 4D before, keyframes have the same functionality in these programs as they do in CSS3.</p>
-      <p>This section will go over the syntax for keyframes in CSS3 as well an introduction to what content could be animated with keyframes. Just like with animation applications, though, keyframes do not automatically play animations. The next section will discuss how to activate animations, or in other words explain what is used instead of a "play button" to show the keyframes in motion.</p>
+    	<p>Keyframes dictate when changes occur and what changes are being made in an animation. If you have used animation applications such as Autodesk Maya, Adobe After Effects, or Maxon's Cinema 4D before, keyframes have the same functionality in these programs as they do in CSS3 animations.</p>
+      <p>This section will go over the syntax for keyframes in CSS3 as well an introduction to what content could be animated with keyframes. Just like with animation applications, though, creating keyframes does not automatically create animations. The next section will discuss how to activate animations, or in other words explain what is used instead of a "play button" in an animation application to show the keyframes in motion.</p>
+        
+        <div class="aside-block">
+            <h2>Vendor Prefixes</h2>
+            <p>The keyframes selector is, as of this module's writing, an experimental feature, and therefore requires <a href="prefixes.html" target="_blank">Vendor Prefixes</a>. These prefixes go in between the @ symbol and "keyframes", so to use keyframes for Firefox, the syntax would be <span class="keyword">@-moz-keyframes</span>.</p>
+        </div>
+        
       <h2>Interactive Example</h2>
       <p>This example shows a blue circle with keyframes prepared to change its position and color based on the percentage of the animation completed. Note that there is no movement yet because the animation has not been activated.</p>
       <div class="codepen-wrapper">
@@ -87,24 +93,18 @@
             <h2>Challenge</h2>
             <p>Instead of percentages, use <span class="keyword">from{}</span> and <span class="keyword">to{}</span> to define the ball bounces animation. After reading through the next section, see if you can alter this example to make the ball move and change colors in the window.</p></div>
 
-      <h2><span class="keyword">@keyframes [INSERT_NAME] {}</span></h2>
-      <p>Keyframes are set up syntactically by using the <span class="keyword">@keyframes</span><sup>[1]</sup> selector followed by a name you select to represent the keyframes (This is similar to the <span class="keyword">@media</span> selector used for responsiveness, as opposed to properties like <span class="keyword">background-color</span>). The variable name you get to select can be any alphanumeric string (and underscores) as long as it starts with a letter and is not already used by another selector, but by convention the naming is uppercase and has a name that relates to the action being animated.</p>
-      <p>After the variable name are open and closing curly braces ({}), which open and close the declaration part of the keyframe CSS rule. All other content relating to keyframes will be contained inside these braces.</p>
+      <h2>Keyframe Syntax</h2>
+      <p>Keyframes are set up syntactically by using the <span class="keyword">@keyframes</span> selector followed by a name you create to represent the keyframes (This is similar to the <span class="keyword">@media</span> selector used for responsiveness, as opposed to properties like <span class="keyword">background-color</span>). The variable name you create can be any alphanumeric string (with underscores) as long as it starts with a letter and is not already used by another selector (in other words, you cannot name an animation "media"), but by convention the naming is uppercase and has a name that relates to the action being animated. An example keyframe name for an animation about a bouncing ball might be BOUNCE.</p>
+      <p>Just like with other selectors, after the variable name are open and closing curly braces ({}), which encapsulate the CSS rules for the keyframe.</p>
       
       <h2>Timing Rules</h2>
-      <p>The <span class="keyword">@keyframes [INSERT_NAME] {}</span> syntax encapsulates a set of CSS rules, each of which are a keyframe (or set of keyframes) that contain the properites you would like to have applied at that point in the animation. Specifically, these CSS rules relate to the time of the animation, and can come in two forms: percentages in the inclusive range of 0% and 100%, and the selectors <span class="keyword">from{}</span> and <span class="keyword">to{}</span>.</p>
-      <p>Percentages are flexible and are called by listing the value of the percent, followed by the percentage, and concluded with the opening and closing curly braces. Any percentage value can be chosen, and the same properties can be applied to multiple percentages by grouping the percentages with commas such as <span class="keyword">0%, 100%</span>.</p>
-      <p>A simpler but less flexible version of timing rules is <span class="keyword">from{}</span> and <span class="keyword">to{}</span>. <span class="keyword">from{}</span> contains properties that are applied at the start of the animation, and <span class="keyword">to{}</span> contains properties that are applied at the end of the animation.</p>
-      <p>In both cases of timing rules, CSS calculates intermediate steps of the animations to show a smooth transition between property values.</p>
+      <p>As discussed in the last topic, the <span class="keyword">@keyframes [INSERT_NAME] {}</span> syntax encapsulates a set of CSS rules, each of which are a keyframe (or set of keyframes) that contain the properites you would like to have applied at that point in the animation. Specifically, these CSS rules relate to the time of the animation, and can come in two forms: percentages in the inclusive range of 0% and 100%, and the selectors <span class="keyword">from{}</span> and <span class="keyword">to{}</span>.</p>
+      <p>Percentages are flexible and are called by listing the value of the percent, followed by the percentage, and concluded with the opening and closing curly braces. Any percentage value can be chosen, and the same properties can be applied to multiple percentages by grouping the percentages with commas such as <span class="keyword">0%, 100%</span>, just as you can write CSS rules that apply to multiple selectors.</p>
+      <p>A simpler but less flexible option to the percentage timing rules is <span class="keyword">from{}</span> and <span class="keyword">to{}</span>. <span class="keyword">from{}</span> contains properties that are applied at the start of the animation, and <span class="keyword">to{}</span> contains properties that are applied at the end of the animation. This option is useful if there are only two states for an animation, but these rules cannot be mixed with percentage timing rules.</p>
+      <p>In both cases of timing rules, CSS calculates intermediate steps of the animations to show a smooth transition between property values. Similar to animation programs, this means we only need to define the points where we want an effect applied, and CSS3 will calculate the transitions for us.</p>
 
       <h2>Keyframed Content</h2>
       <p>Just like with regular CSS selectors, properties such as <span class="keyword">background-color</span>, <span class="keyword">margin</span>, and <span class="keyword">width</span> can all be specified inside a timing rule.</p>
-      <div id="footnote-wrapper">
-        <h3>Footnotes</h3>
-        <div class="footnote"> 
-          <sup>[1]</sup> The keyframes selector is, as of this module's writing, an experimental feature, and therefore requires <a href="prefixes.html" target="_blank">Vendor Prefixes</a>. These prefixes go in between the @ symbol and "keyframes", so to use keyframes for Firefox, the syntax would be <span class="keyword">@-moz-keyframes</span>.</p>
-        </div>
-      </div>
     </div>
     <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">

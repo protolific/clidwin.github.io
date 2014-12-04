@@ -89,8 +89,13 @@
             By clicking the "Edit with CodePen" link, you are able to interact with this example. Instead of scaling the square, try vertically translating the square 50 pixels.
         </div>
 
-      <h2 id="matrix">matrix</h2>
-      <p>The <span class="keyword">matrix()</span> function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations<sup>[1]</sup>.</p>
+      <h2 id="matrix">Matrix</h2>
+      <p>The <span class="keyword">matrix()</span> function uses a 2d matrix to apply transforms to an element. The first four arguments are the first two rows of the matrix, and are numbers (integers or decimals) that rotate, scale, and skew the element. The last two arguments are the horizontal and vertical translations. Together, all of these arguments satisfy six of the nine positions of a 3 by 3 matrix, which can be used to support 3d transformations.</p>
+        
+        <div class="aside-block" style="margin-bottom: 30px;">
+            <h2>Matrix Math</h2>
+            <p>More explanation of how the matrix arguments are structured can be best understood in an <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/" target="_blank">introduction to matrix algebra</a>.</p>
+    </div>
 
       <p>As an example, if someone wanted to scale a square to twice its original size and rotate it 45 degrees, they might use the CSS <span class="keyword">transform:  matrix(1, -1, 1, 1, 20, 20);</span>.As an alternative, they could use the rotate, translate, and scale functions all listed after the transform property.</p> 
         
@@ -99,13 +104,6 @@
             <div class="square right-align underlay"></div>
             <div class="square right-align" style="transform: matrix(1, -1, 1, 1, 20, 20);"></div>
         </div>
-      
-      <div id="footnote-wrapper">
-        <h3>Footnotes</h3>
-        <div class="footnote"> 
-          <sup>[1]</sup> More explanation of how the matrix arguments are structured can be best understood in an <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/" target="_blank">introduction to matrix algebra</a>.
-        </div>
-      </div>
 </div>
       <div id="bottom-nav-wrapper" >
        <div id="bottom-nav">
