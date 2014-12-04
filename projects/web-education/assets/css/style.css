@@ -1,6 +1,7 @@
 /* Imports */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
+
 @import url('reset.css');
 @import url('animation-examples.css');
 @import url('transform-examples.css');
@@ -184,7 +185,7 @@ li {
 }
 
 #bottom-navigation {
-    margin: 10px auto;
+    margin: 10px auto 3px auto;
     width: 200px;
 }
 
