@@ -53,9 +53,9 @@ a:hover {
 }
 
 sup {
-	font-size: 0.8em;
-	vertical-align: super;
+	font-size: 0.6em;
     line-height: inherit;
+	vertical-align: top;
 }
 
 strong {
@@ -82,7 +82,7 @@ li {
     color: #fff;
     font-weight: 400;
     font-size: 1.2em;
-    height: 75px;
+    height: 90px;
     width: 100%;
 }
 
@@ -116,7 +116,7 @@ li {
 }
 
 .navbar-menu-item-text {
-    line-height: 75px;
+    line-height: 90px;
     color: #eee;
     text-decoration: none;
 }
@@ -138,13 +138,14 @@ li {
 
 #navbar-title {
     position: absolute;
-    top: 25px;
+    top: 30px;
     left: 0;
     
     color: #fff;
     font-size: 2em;
     font-weight: 600;
     text-decoration: none;
+    vertical-align: middle;
 }
 
 #module-navbar {
@@ -186,6 +187,7 @@ li {
 
 #bottom-navigation {
     margin: 10px auto 3px auto;
+    min-height: 35px;
     width: 200px;
 }
 
@@ -333,6 +335,7 @@ li {
     clear: both;
 	max-width: 905px;
 	margin: 150px auto 90px auto;
+    position: relative;
 }
 
 #module-index-link {
@@ -367,6 +370,11 @@ li {
 #module-topics {
 	clear: both;
 	margin: 20px 0;
+}
+
+#modules-wrapper {
+    margin: 0 auto;
+    max-width: 670px;
 }
 
 #next-button {
@@ -434,6 +442,14 @@ li {
     width: calc(100%-20px);
 }
 
+.module-section-desc {
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px 15px;
+    text-align: justify;
+    vertical-align: top;
+}
+
 .next-section-block, .next-section-block:hover {
     background-color: #2386C8;
     color: #eee;
@@ -497,6 +513,19 @@ li {
     background-color: #bbb;
 }
 
+.referenced-block {
+    background-color: #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 15px 30px;
+    padding: 0 7px;
+}
+
+.referenced-prefix {
+    font-weight: 400;
+    padding-right: 10px;
+}
+
 .module-block-link-inactive {
     background-color: #ccc;
     color: #666;
@@ -557,4 +586,18 @@ li {
     position: relative;
     width: 100%;
     perspective-origin: center;
+}
+
+.blank-space {
+    height: 20px;
+    width: 100%;
+}
+
+#pro-con-list li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.pro-con-mark {
+    margin-right: 15px;
 }
