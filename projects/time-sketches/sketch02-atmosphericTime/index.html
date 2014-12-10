@@ -7,10 +7,20 @@
     <script src="libraries/p5.js" type="text/javascript"></script>
 
     <!-- Uncomment the lines below to include extra p5 libraries -->
-    <!--<script src="libraries/p5.dom.js" type="text/javascript"></script>-->
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
     <!--<script src="libraries/p5.sound.js" type="text/javascript"></script>-->
     <script src="sketch.js" type="text/javascript"></script>
   </head>
   <body>
+    <div id="city-state-picker">
+      <h2>Enter a US City and State</h2>
+      <h4>City:</h4>
+      <input id="city-name" class="input-text" type="text" value="Blacksburg" />
+      </br>
+      <h4>State:</h4>
+      <input id="state-name" class="input-text" type="text" value="VA" />
+      
+      <input id="picker-submit" type="submit" onclick="changeLocation();" />
+    </div>
   </body>
 </html>

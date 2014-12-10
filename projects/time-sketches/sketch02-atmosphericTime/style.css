@@ -1,6 +1,58 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 body, canvas {
+  color: #555;
+  font-family: 'Montserrat', san-serif;
   margin: 0;
   overflow: none;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+h4 {
+  display: inline-block;
+  margin: 15px 0;
+  padding-right: 5px;
+}
+
+.input-text {
+  display: inline-block;
+  float: right;
+  height: 20px;
+  margin-top: 10px;
+  min-width: 280px;
+}
+
+.note {
+  font-size: 12px;
+}
+
+#city-state-picker {
+  position: absolute;
+  top: calc(50% - 112px);
+  left: calc(50% - 180px);
+  
+  background-color: #eee;
+  border-radius: 5px;
+  display: block;
+  height: 224px;
+  padding: 15px 25px;
+  width: 360px;
+  z-index: 2;
+}
+
+#picker-submit {
+  background-color: #999;
+  border: 5px solid #999;
+  border-radius: 3px;
+  color: #eee;
+  float: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 5px;
 }

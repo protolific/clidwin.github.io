@@ -5,7 +5,7 @@
  * Author: Christina Lidwin
  * 
  * Created On: October 20, 2014
- * Modified On: December 03, 2014
+ * Modified On: December 10, 2014
  * 
  * Design Goal: To create a visual piece where the rate at which objects moves
  *    relates to the wind speed/direction, color relates to the temperature, etc.
@@ -16,8 +16,8 @@
  *    windy, etc. I thought that the topic would make an interesting abstract
  *    piece.
  * 
- * Interactivity: None specified (yet). Maybe allow the capability to enter in
- *    a custom city/state.
+ * Interactivity: Allows the user to enter in a custom city/state by clicking
+ *    on the currently-displayed state and city in the lower right corner.
  */
 
 // Visual Elements
@@ -35,6 +35,8 @@ var temp_f;
 var wind_mph;
 
 var bgImg;
+
+var showCityPicker = false;
 
 /**
  * Custom triangle class.
@@ -67,7 +69,7 @@ function setup() {
   
   // Create color settings.
   colorMode(HSB, 360, 100, 100, 100);
-  background(350, 100, 90);
+  background(350, 0, 90);
   
   // Initialize Visual Elements
   hue = 180;
@@ -141,6 +143,11 @@ function drawCredits() {
     
     colorMode(RGB);
     tint(255, 125);
+    if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 80 - weatherLogo.height && 
+        mouseY <= height - 80) {
+      tint(255, 200);
+    }
     image(
       weatherLogo, 
       20, // image x position (top-left corner)
@@ -161,6 +168,12 @@ function drawCredits() {
       'with a wind speed of ' + wind_mph + ' mph', 
       weatherLogo.width, 
       weatherLogo.height + 40);
+      
+    if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 30 && 
+        mouseY <= height - 15) {
+      fill(100, 0, 100, 90);
+    }
     text(
       'in ' + weather_city + ', ' + weather_state, 
       weatherLogo.width, 
@@ -169,23 +182,72 @@ function drawCredits() {
 }
 
 /**
+ * Operation that occurs when the mouse is moved.
+ */
+function mouseMoved() {
+  // Show the cursor as a hand if it's hovering over the weather logo.
+  if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 80 - weatherLogo.height && 
+        mouseY <= height - 80) {
+    cursor(HAND);
+  } else if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 30 && 
+        mouseY <= height - 15) {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
+}
+
+/**
+ * Operation that occurs when the mouse is clicked.
+ */
+function mouseClicked() {
+  // Open the weather underground API in a new tab when the logo is clicked.
+  if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 80 - weatherLogo.height && 
+        mouseY <= height - 80) {
+    var win = window.open('http://www.wunderground.com/weather/api/', '_blank');
+    win.focus();
+  } 
+  // Show the selector for a new city/state
+  else if (mouseX >= width - 20 - weatherLogo.width && 
+        mouseY >= height - 30 && 
+        mouseY <= height - 15) {
+    $( '#city-state-picker' ).toggle( true );
+  }
+  // Hide the selector for a new city/state.
+  else if (
+        !(mouseX >= width/2 - 200 && mouseX <= width/2 + 200) &&
+        !(mouseY >= height/2 - 100 && mouseY <= height/2 + 100)) {
+    $( '#city-state-picker' ).toggle( false );
+  }
+}
+
+/**
  * Draws a radial gradient.
  * Based on: https://www.processing.org/examples/radialgradient.html
  */
 function drawRadialGradient() {
-  var dim = windowHeight;
+  var dim = windowWidth;
+  if (windowHeight > windowWidth) {
+    dim = windowHeight;
+  }
+  if (dim < 200) {
+    dim =200;
+  }
   var radius = dim;
   var s = 100;
   var x = windowWidth;
   var y = windowHeight;
   
   bgImg.noStroke();
-  for (var r = radius; r > 0; r-=3) {
+  for (var r = radius; r > 0; r-=5) {
     bgImg.stroke(hue, s, 90);
     bgImg.strokeWeight(r);
     bgImg.point(x, y);
-    if (s > 5) {
-      s-=0.15;
+    if (s > 10) {
+      s-=0.5;
     }
   }
 }
@@ -247,13 +309,37 @@ function parseWeatherData() {
       
       setHue();
       setVelocityAndRotationFactor();
-      createTriangles();
+      if (!triangles || triangles.length === 0) {
+        createTriangles();
+      } else {
+        updateTriangleProperties();
+      }
       drawRadialGradient();
     },
     error: function(parsed_json) {
-      alert(parsed_json);
+      //TODO: Figure out why this message isn't being shown
+      alert('parsed_json');
     }
   });
+}
+
+/**
+ * Updates the location of the city and state.
+ */
+function changeLocation() {
+  $( '#city-state-picker' ).toggle( false );
+  
+  var newCity = $('#city-name').val();
+  newCity = newCity.replace(' ', '_');
+  
+  var newState = $('#state-name').val();
+  if (newState.length != 2) {
+    alert('Enter a valid state abbreviation');
+  } else {
+    weather_city = newCity;
+    weather_state = newState;
+    parseWeatherData();
+  }
 }
 
 /**
@@ -269,9 +355,9 @@ function setHue() {
   } else if (temp_f < 50) {
     hue = 192; // Light Blue
   } else if (temp_f < 68) {
-    hue = 45; // Green
+    hue = 45; // Yellow
   } else if (temp_f < 86) {
-    hue = 36; // Yellow
+    hue = 36; // Orange
   } else {
     hue = 15; //Red
   }
@@ -318,7 +404,7 @@ function createTriangles() {
   }
   
   for (var i=0; i<numTriangles; i++) {
-    // Find the first point's 2D position and velocity.
+    // Find the first point's 2D position, velocity, and rotation.
     var pos = 
           createVector(noise(xOff + 2*i) * width, noise(yOff - 2*i) * height);
 
@@ -334,5 +420,22 @@ function createTriangles() {
     // Update the offset values.
     xOff += 20;
     yOff += 20;
+  }
+}
+
+/**
+ * Assigns new velocity and rotation information for each triangle.
+ */
+function updateTriangleProperties() {
+  for (var i=0; i<triangles.length; i++) {
+    velocity = createVector(
+      random(0-velocityLimit, velocityLimit), 
+      random(0-velocityLimit, velocityLimit)
+    );
+    rotationFactor = random(0 - rotationFactorLimit, rotationFactorLimit);
+    
+    triangles[i].velocity = velocity;
+    triangles[i].rotationFactor = rotationFactor;
+    triangles[i].rotation = this.rotationFactor;
   }
 }
