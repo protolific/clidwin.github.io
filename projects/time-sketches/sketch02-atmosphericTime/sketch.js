@@ -143,10 +143,12 @@ function drawCredits() {
     
     colorMode(RGB);
     tint(255, 125);
+    
+    // Change the opacity of the logo on mouse hover
     if (mouseX >= width - 20 - weatherLogo.width && 
         mouseY >= height - 80 - weatherLogo.height && 
         mouseY <= height - 80) {
-      tint(255, 200);
+      tint(255, 200); 
     }
     image(
       weatherLogo, 
@@ -157,6 +159,7 @@ function drawCredits() {
       );
     colorMode(HSB);
     
+    // Write text.
     fill(100, 0, 100, 50);
     textAlign(RIGHT);
     textSize(12);
@@ -168,7 +171,8 @@ function drawCredits() {
       'with a wind speed of ' + wind_mph + ' mph', 
       weatherLogo.width, 
       weatherLogo.height + 40);
-      
+    
+    // Change the opacity of the city text on mouse hover
     if (mouseX >= width - 20 - weatherLogo.width && 
         mouseY >= height - 30 && 
         mouseY <= height - 15) {
