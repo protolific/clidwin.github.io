@@ -7,10 +7,12 @@ function showAnnotation(element) {
     frontCard.animateRotate(180, 500, 'linear', function(){
         frontCard.css('z-index', '1');
         frontCard.css('backface-visibility', 'hidden');
+        frontCard.css('transform', 'rotateY(180deg)');
     });
-    backCard.animateRotate(360, 500, 'linear', function(){
+    backCard.animateRotate(180, 500, 'linear', function(){
         backCard.css('z-index', '2');
         backCard.css('backface-visibility', 'visible');
+        backCard.css('transform', 'rotateY(0deg)');
     });
   }
 };
@@ -22,13 +24,15 @@ function hideAnnotation(element) {
     var frontCard = card.children().first();
     var backCard = card.children().last();
     
-    frontCard.animateRotate(360, 500, 'linear', function(){
-        frontCard.css('z-index', '2');
-        frontCard.css('backface-visibility', 'visible');
-    });
     backCard.animateRotate(180, 500, 'linear', function(){
         backCard.css('z-index', '1');
         backCard.css('backface-visibility', 'hidden');
+        backCard.css('transform', 'rotateY(180deg)');
+    });
+    frontCard.animateRotate(180, 500, 'linear', function(){
+        frontCard.css('z-index', '2');
+        frontCard.css('backface-visibility', 'visible');
+        frontCard.css('transform', 'rotateY(0deg)');
     });
   }
 };

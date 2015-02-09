@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,300italic,400,400italic,500,700,900);
 @import url("reset.css");
+@import url("onepcssgrid.css");
 
 
 /* HTML Element Override */
@@ -18,13 +19,38 @@ html {
 	color: #4d4d4d;
 }
 
+h1 {
+   font-size: 1.6em;
+   font-weight: 400;
+   line-height: 1.6em; 
+}
+
+h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.6em;
+}
+
 em {
-    font-weight: 300italic;
+    font-weight: 400;
 }
 
 p {
     line-height: 1.6em;
-    margin-bottom: 1.4em;
+}
+
+ul {
+    margin: 8px 0;
+}
+
+li {
+    margin-left: 12px;
+    line-height: 1.6em;
+    list-style: inside;
+}
+
+.content-block {
+    margin-bottom: 1em;
 }
 
 /* Material Design Elements */
@@ -48,21 +74,32 @@ p {
 
 /* Navigation */
 #active-nav-item {
-   color: #63A8BC;
+   color: #eceff1;
    text-decoration: underline;
 }
+
 .nav-item {
-    color: rgba(0, 0, 0, 0.8);
+    color: #cfd8dc;
     font-size: 1.3em;
     margin: 0 16px;
 }
-#nav {
-    margin: 16px auto 0 auto;
+
+.sub-nav-item {
+    display: inline-block;
+    font-weight: 400;
+    margin: 0 16px;
+}
+
+#nav, #sub-nav {
+    margin: 0 auto 0 auto;
     max-width: 1200px;
 }
 
-#nav-wrapper {
-    min-height: 55px;
+#nav {
+    padding-top: 6px;
+}
+
+.nav-wrapper {
     padding: 8px 0;
     width: 100%;
 }
@@ -81,7 +118,7 @@ p {
 
 .source-card-container {
     display: inline-block;
-    margin: 8px;
+    margin: 16px 24px;
     perspective: 500px;
 }
 
