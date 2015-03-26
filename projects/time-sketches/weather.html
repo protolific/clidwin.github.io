@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta Information !-->
+    <title>Weather Visualization | Christina Lidwin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="The weather visualization provides an answer to the question 'How might we visualize the weather?'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styling !-->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+    <style>
+        .accent-bg-color {
+            background-color: #0077e8;
+        }
+        .accent-color {
+            color: #0077e8;
+        }
+        .triangle-desc {
+            display: inline-block;
+            margin: 20px 10px;
+        }
+        .triangle-desc div {
+            font-size: 0.8em;
+        }
+        
+        #quick-nav {
+            background-color: #e6ad00;
+        }
+    </style>
+
+    <!-- Javascript !-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../assets/js/functions.js"></script>
+    
+    <!-- TODO: Add Google Analytics !-->
+  </head>
+  <body>
+    <div class="page">
+        <img class="bg" src="imgs/weather/atmospheric-bg.png" />
+        <div id="content">
+            <a id="link-homepage" href="https://clidwin.com">Back to Homepage</a>
+            <div id="card">
+                <div id="overview" class="card-text-section">
+                    <h2 class="centered">How might we visualize the weather?</h2>
+                    <div class="section-break"></div>
+                    <div id="overview-highlight" class="copy centered">I re-present aspects of weather in an ambient display instead of simply showing a picture or video stream of the outdoors.</div>
+                    <div class="section-break"></div>
+                    <a class="accent-bg-color button" href="time-sketches/sketch02-atmosphericTime/index.html">
+                        View Visualization
+                    </a>
+                </div>
+                <div class="feature-image-container">
+                    <img class="feature-image" src="imgs/weather/atmospheric-card.png" alt="Computer showcasing the weather visualization" title="Computer showcasing the weather visualization" />
+                </div>
+                <div class="section-break"></div>
+                <div class="section-break"></div>
+                <div class="card-text-section">
+                    <div class="card-text-column">
+                        <h3 class="centered">Client</h3>
+                    <div class="copy justified">This school project from Fall 2014 was created as part of a course on Processing. The topic for the assignment was to use Processing in creating a visual piece, and I developed the concept of using real-time weather data as the foundation.</div>
+                    </div>
+                    <div class="card-text-column">
+                        <h3 class="centered">Inspiration</h3>
+                        <div class="copy justified">This weather visualization is inspired by spaces (especially workplaces) without natural lighting. I wanted to find a way to display the temperature and wind speed of my local area with more than plain text or literal imagery.</div>
+                    </div>
+                </div>
+                <div class="section-break"></div>
+                <div class="section-break"></div>
+                <div class="card-text-section">
+                    <h3 class="centered">Languages and Technologies</h3>
+                        <div class="copy centered">
+                            This weather visualization utilizes the following technologies:
+                        </div>
+                    <div class="tech-reference-wrapper centered">
+                        <div class="tech-reference">
+                            <a href="http://www.w3.org/html/logo/" target="_blank">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3.png" width="133" height="64" alt="HTML5 Powered with CSS3 / Styling" title="HTML5 Powered with CSS3 / Styling" class="grayscale tech-reference-img">
+    </a>
+                            <div class="tech-reference-text">HTML5 & CSS3</div>
+                        </div>
+                        <div class="tech-reference">
+                            <a href="http://p5js.org/" target="_blank">
+    <img src="http://p5js.org/img/p5js-beta.svg" width="133" height="64" alt="p5 javascript" title="p5 javascript" class="grayscale tech-reference-img">
+    </a>
+                            <div class="tech-reference-text">p5.js</div>
+                        </div>
+                        <div class="tech-reference">
+                            <a href="https://www.wunderground.com/weather/api/" target="_blank">
+    <img src="http://www.wunderground.com/logos/images/wundergroundLogo_4c.jpg" width="133" height="80" alt="Weather Underground Weather API" title="Weather Underground Weather API" class="grayscale tech-reference-img">
+    </a>
+                            <div class="tech-reference-text">Weather API</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-break"></div>
+                <div class="section-break"></div>
+                <div class="card-text-section">
+                    <h3 class="centered">How It Works</h3>
+                    <div class="copy justified">This visualization is built using the Processing's javascript library and the temperature and wind speed data points from Weather Underground. Every fifteen minutes, the visualization requests updated weather information from Weather Underground. Updated information from Weather Underground changes the color of the visualization based on the temperature and the speed of triangles based on the wind speed.<br/><br/></div>
+                    <div class="centered">
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/violet.png" alt="violet triangles" title="violet triangles">
+                            <div class="bold centered">< 0&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/dark-blue.png" alt="dark blue triangles" title="dark blue triangles">
+                            <div class="bold centered">1&deg;F - 16&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/medium-blue.png" alt="medium blue triangles" title="medium blue triangles">
+                            <div class="bold centered">17&deg;F - 32&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/light-blue.png" alt="light blue triangles" title="light blue triangles" class="grayscale tech-reference-img">
+                            <div class="bold centered">33&deg;F - 49&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/yellow.png" alt="yellow triangles" title="yellow triangles" class="grayscale tech-reference-img">
+                            <div class="bold centered">50&deg;F - 67&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/orange.png" alt="orange triangles" title="orange triangles" class="grayscale tech-reference-img">
+                            <div class="bold centered">68&deg;F - 85&deg;F</div>
+                        </div>
+                        <div class="triangle-desc">
+                            <img src="imgs/weather/red.png" alt="red triangles" title="red triangles" class="grayscale tech-reference-img">
+                            <div class="bold centered">> 85&deg;F</div>
+                        </div>
+                    </div>
+                    <div class="copy justified"><br/>While this is meant to be an ambient piece, people can interact with the visualization by clicking on the city and state name indicated in the bottom right hand corner of the visualization. Users are then prompted to enter a US city and state to update the visualization with a different location than the default Blacksburg, VA.</div>
+                </div>
+                <div class="section-break"></div>
+                <div class="section-break"></div>
+                <!-- The quick-links circle should have options to view this project on GitHub and Behance !-->
+                <a href="https://clidwin.com">
+                    <div id="quick-nav" class="drop-shadow">
+                        <span class="entypo-home quick-nav-icon"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
